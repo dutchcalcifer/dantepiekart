@@ -72,15 +72,14 @@ main {
 	font-weight: 650;
 	text-decoration: underline;
 	text-decoration-thickness: 6px;
-	text-underline-offset: 8px;
-	margin-top: 0;
-	margin-bottom: 10px;
+	text-underline-offset: 10px;
+	margin: 0;
 	color: #1D1D1F;
 }
 
 .heading {
 	font-size: 40px;
-	margin: 0;
+	margin: 10px 0 0 0;
 }
 
 .img {
