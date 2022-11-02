@@ -1,13 +1,6 @@
 @font-face {
 	font-family: SF-Pro, sans-serif;
 	src: url(../font/SF-Pro.ttf) format('truetype');
-	font-weight: 320;
-}
-
-@font-face {
-	font-family: SF-Pro, sans-serif;
-	src: url(../font/SF-Pro.ttf) format('truetype');
-	font-weight: 650;
 }
 
 body {
@@ -32,7 +25,6 @@ header {
 .nav-flex {
 	margin-top: 32px;
 	margin-right: 30px;
-	display: flex;
 	justify-content: right;
 	display: inline-block;
 
@@ -70,7 +62,6 @@ main {
 
 @media only screen and (max-width: 1000px) {
 	.main-flex {
-		display: flex;
 		flex-direction: column;
 		width: 443px;
 		margin-left: auto;
@@ -85,6 +76,10 @@ main {
 		position: sticky;
 		text-align: center;
 		width: 100%;
+	}
+
+	.img {
+		margin-bottom: 100px;
 	}
 }
 
@@ -116,7 +111,6 @@ footer {
 }
 
 footer > p {
-	margin-top: auto;
 	font-size: 17px;
 	margin: 0;
 	font-weight: 200;
