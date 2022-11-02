@@ -117,8 +117,8 @@ footer {
 
 footer > p {
 	margin-top: auto;
-	margin: 0 0 9px 0;
 	font-size: 17px;
+	margin: 0;
 	font-weight: 200;
 	color: #6E6E73;
 }
