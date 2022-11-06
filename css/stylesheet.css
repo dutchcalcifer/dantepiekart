@@ -11,7 +11,8 @@ header {
 }
 
 .logo {
-	width: 78.5px;
+	height: 78.5px;
+	width: auto;
 	display: inline-block;
 	margin-left: 16px;
 	margin-top: 13px;
@@ -70,7 +71,7 @@ main {
 }
 
 .img {
-	max-width: 420px;
+	width: 420px;
 	height: auto;
 	border: 6px;
 	border-style: solid;
