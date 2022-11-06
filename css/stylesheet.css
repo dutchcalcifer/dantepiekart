@@ -1,10 +1,5 @@
-@font-face {
-	font-family: SF-Pro, sans-serif;
-	src: url(../font/SF-Pro.ttf) format('truetype');
-}
-
 body {
-	font-family: SF-Pro, sans-serif;
+	font-family: sans-serif;
 	background-color: #FAF9F6;
 	color: #1D1D1F;
 	margin: 0;
