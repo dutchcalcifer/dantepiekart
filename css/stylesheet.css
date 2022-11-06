@@ -27,7 +27,6 @@ header {
 	margin-right: 30px;
 	justify-content: right;
 	display: inline-block;
-
 }
 
 .nav-button {
@@ -58,29 +57,6 @@ main {
 	display: flex;
 	justify-content: space-evenly;
 	align-items: center;
-}
-
-@media only screen and (max-width: 1000px) {
-	.main-flex {
-		flex-direction: column;
-		width: 443px;
-		margin-left: auto;
-		margin-right: auto;
-	}
-
-	.main-flex > div {
-		margin-bottom: 100px;
-	}
-
-	footer {
-		position: sticky;
-		text-align: center;
-		width: 100%;
-	}
-
-	.img {
-		margin-bottom: 100px;
-	}
 }
 
 .title {
@@ -115,4 +91,27 @@ footer > p {
 	margin: 0;
 	font-weight: 200;
 	color: #6E6E73;
+}
+
+@media only screen and (max-width: 1000px) {
+	.main-flex {
+		flex-direction: column;
+		width: 443px;
+		margin-left: auto;
+		margin-right: auto;
+	}
+
+	.main-flex > div {
+		margin-bottom: 100px;
+	}
+
+	.img {
+		margin-bottom: 100px;
+	}
+
+	footer {
+		position: sticky;
+		text-align: center;
+		width: 100%;
+	}
 }
