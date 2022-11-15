@@ -1,7 +1,13 @@
+:root {
+	--color: #1D1D1F;
+	--background-color: #FAF9F6;
+	--footer-color: #6E6E73;
+}
+
 body {
 	font-family: sans-serif;
-	background-color: #FAF9F6;
-	color: #1D1D1F;
+	color: var(--color);
+	background-color: var(--background-color);
 	margin: 0;
 }
 
@@ -10,7 +16,7 @@ header {
 	justify-content: space-between;
 }
 
-.logo {
+#logo {
 	height: 78.5px;
 	width: auto;
 	display: inline-block;
@@ -18,30 +24,22 @@ header {
 	margin-top: 13px;
 }
 
-.nav-flex {
+nav {
 	margin-top: 32px;
 	margin-right: 30px;
 	justify-content: right;
 	display: inline-block;
 }
 
-.nav-button {
+nav > a {
 	text-decoration: none;
 	font-size: 32.5px;
 	margin-left: 29px;
 	font-weight: 320;
-	color: #1D1D1F;
 }
 
-.nav-button:hover {
+nav >a:hover, #active {
 	text-decoration: underline;
-}
-
-.nav-button-active {
-	font-size: 32.5px;
-	margin-left: 29px;
-	font-weight: 320;
-	color: #1D1D1F;
 }
 
 main {
@@ -55,19 +53,22 @@ main {
 	align-items: center;
 }
 
-.title {
+h1 {
 	font-size: 40px;
 	font-weight: 650;
 	text-decoration: underline;
 	text-decoration-thickness: 6px;
 	text-underline-offset: 10px;
 	margin: 0;
-	color: #1D1D1F;
 }
 
-.heading {
+p {
 	font-size: 40px;
 	margin: 10px 0 0 0;
+}
+
+a {
+	color: var(--color);
 }
 
 .img {
@@ -86,7 +87,7 @@ footer > p {
 	font-size: 17px;
 	margin: 0;
 	font-weight: 200;
-	color: #6E6E73;
+	color: var(--footer-color);
 }
 
 @media only screen and (max-width: 1000px) {
@@ -97,11 +98,7 @@ footer > p {
 		margin-right: auto;
 	}
 
-	.main-flex > div {
-		margin-bottom: 100px;
-	}
-
-	.img {
+	section, .img {
 		margin-bottom: 100px;
 	}
 
