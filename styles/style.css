@@ -1,3 +1,8 @@
+* {
+	box-sizing: border-box;
+	margin: 0;
+}
+
 :root {
 	--color: #1D1D1F;
 	--background-color: #FAF9F6;
@@ -8,7 +13,6 @@ body {
 	font-family: sans-serif;
 	color: var(--color);
 	background-color: var(--background-color);
-	margin: 0;
 }
 
 header {
@@ -38,7 +42,7 @@ nav > a {
 	font-weight: 320;
 }
 
-nav >a:hover, #active {
+nav > a:hover, #active {
 	text-decoration: underline;
 }
 
@@ -59,12 +63,16 @@ h1 {
 	text-decoration: underline;
 	text-decoration-thickness: 6px;
 	text-underline-offset: 10px;
+	margin: 0 0 10px 0;
+}
+
+p{
+	font-size: 40px;
 	margin: 0;
 }
 
-p {
-	font-size: 40px;
-	margin: 10px 0 0 0;
+.lb {
+	margin-bottom: 46px;
 }
 
 a {
