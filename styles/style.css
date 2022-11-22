@@ -118,6 +118,10 @@ footer > p {
 		margin-bottom: 100px;
 	}
 
+	section {
+		margin-bottom: 100px;
+	}
+
 	footer {
 		position: sticky;
 		text-align: center;
