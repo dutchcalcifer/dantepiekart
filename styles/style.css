@@ -50,7 +50,7 @@ nav a {
 	font-weight: 320;
 }
 
-nav > a:hover, #active {
+nav a:hover, #active {
 	text-decoration: underline;
 }
 
@@ -99,7 +99,7 @@ footer {
 	justify-content: center;
 }
 
-footer > p {
+footer p {
 	font-size: 17px;
 	margin: 0;
 	font-weight: 200;
