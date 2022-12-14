@@ -1,3 +1,4 @@
+/* root */
 * {
 	box-sizing: border-box;
 	margin: 0;
@@ -15,6 +16,7 @@ body {
 	background-color: var(--background-color);
 }
 
+/* header */
 header {
 	display: flex;
 	justify-content: space-between;
@@ -58,6 +60,7 @@ nav a:hover, #active {
 	text-decoration: underline;
 }
 
+/* main */
 main {
 	margin: 3.1rem 0 9.4rem 0;
 	min-height: calc(100vh - 20rem);
@@ -100,6 +103,7 @@ main img {
 	border-style: solid;
 }
 
+/* footer */
 footer {
 	display: flex;
 	justify-content: center;
@@ -112,6 +116,7 @@ footer p {
 	color: var(--footer-color);
 }
 
+/* phones / responsive */
 @media only screen and (max-width: 62.5rem) {
 	main {
 		margin-top: 6.2;
