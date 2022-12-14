@@ -49,8 +49,13 @@ li {
 	list-style: none;
 }
 
+a {
+	color: var(--color);
+}
+
 nav a {
-	text-decoration: none;
+	text-decoration: underline solid transparent;
+	transition: text-decoration 0.1s ease-out;
 	font-size: 2rem;
 	margin-left: 1.8rem;
 	font-weight: lighter;
@@ -92,8 +97,13 @@ p {
 	margin: 0;
 }
 
-a {
-	color: var(--color);
+h1 a {
+	text-decoration: underline solid;
+	transition: text-decoration-color 0.1s ease-out;
+}
+
+h1 a:hover {
+	text-decoration-color: var(--footer-color);
 }
 
 main img {
