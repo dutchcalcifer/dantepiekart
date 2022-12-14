@@ -129,7 +129,7 @@ footer p {
 /* phones / responsive */
 @media only screen and (max-width: 62.5rem) {
 	main {
-		margin-top: 6.2;
+		margin-top: 6.2rem;
 		flex-direction: column;
 		width: 27.7rem;
 		margin-left: auto;
@@ -138,11 +138,11 @@ footer p {
 	}
 
 	main img {
-		margin-bottom: 100px;
+		margin-bottom: 6.2rem;
 	}
 
 	section {
-		margin-bottom: 100px;
+		margin-bottom: 6.2rem;
 	}
 
 	footer {
