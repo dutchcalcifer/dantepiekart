@@ -68,8 +68,8 @@ nav a:hover, #active {
 
 /* main */
 main {
-	margin: 3.125rem 0 9.375rem 0;
-	min-height: calc(100vh - 20rem);
+	min-height: calc(100vh - 7.156rem - 6.25rem - 0.313rem);
+	margin-bottom: 6.25rem;
 	display: flex;
 	flex-direction: row;
 	justify-content: space-evenly;
@@ -126,6 +126,7 @@ a img:hover {
 
 /* footer */
 footer {
+	margin-bottom: 0.313rem;
 	display: flex;
 	justify-content: center;
 }
@@ -155,12 +156,5 @@ footer p {
 
 	section {
 		margin-bottom: 6.25rem;
-	}
-
-	footer {
-		position: sticky;
-		text-align: center;
-		width: 100%;
-		margin-bottom: 0.313rem;
 	}
 }
