@@ -51,6 +51,7 @@ li {
 
 a {
 	color: var(--color);
+	text-decoration: none;
 }
 
 nav a {
