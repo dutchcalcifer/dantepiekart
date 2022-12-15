@@ -68,7 +68,7 @@ nav a:hover, #active {
 
 /* main */
 main {
-	min-height: calc(100vh - 7.156rem - 6.25rem - 0.313rem);
+	min-height: calc(100vh - 13.719rem);
 	margin-bottom: 6.25rem;
 	display: flex;
 	flex-direction: row;
@@ -133,7 +133,6 @@ footer {
 
 footer p {
 	font-size: 1.063rem;
-	margin: 0;
 	font-weight: 200;
 	color: var(--footer-color);
 }
