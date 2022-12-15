@@ -63,7 +63,7 @@ nav a:hover, #active {
 
 /* main */
 main {
-	min-height: calc(100vh - 13.719rem);
+	min-height: calc(100vh - 13.756rem);
 	margin: 0 0 6.25rem;
 	display: flex;
 	justify-content: space-evenly;
