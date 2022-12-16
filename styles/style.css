@@ -66,13 +66,18 @@ nav a:hover, #active {
 /* main */
 main {
 	min-height: calc(100vh - 13.756rem);
-	margin: 0 0 6.25rem;
+	margin: 3rem 0 3.25rem;
 	display: flex;
 	justify-content: space-evenly;
-	align-items: center;
 }
 
- section p:nth-child(3) {
+section {
+	max-width: 35rem;
+	margin: 0 0 6.25rem;
+	align-self: center;
+}
+
+ section p:nth-child(3), #lb {
 	margin: 0 0 2.875rem;
 }
 
@@ -114,11 +119,15 @@ p a:hover {
 
 main img {
 	width: 26.25rem;
+	height: 26.25rem;
 	border: 0.375rem solid;
+	margin: 0 0 6.25rem;
+	align-self: center;
 }
 
 main a img {
 	transition: border-color 0.1s ease-out;
+	margin: 2.8rem 0;
 }
 
 main a img:hover {
@@ -138,7 +147,7 @@ footer p {
 }
 
 /* responsive / phone */
-@media only screen and (max-width: 62.5rem) {
+@media only screen and (max-width: 75rem) {
 	/* main */
 	main {
 		margin: 6.25rem auto 0;
@@ -147,11 +156,7 @@ footer p {
 		width: 26.25rem;
 	}
 
-	section {
-		margin: 0 0 6.25rem;
-	}
-
-	main img {
+	main a img {
 		margin: 0 0 6.25rem;
 	}
 }
