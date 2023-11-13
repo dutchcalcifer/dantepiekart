@@ -66,6 +66,14 @@ main {
 	align-items: center;
 }
 
+#portfolio > section {
+	flex-basis: 25%;
+}
+
+#portfolio {
+	align-items: baseline;
+}
+
 section {
 	margin: 1rem;
 }
