@@ -135,11 +135,17 @@ p a{
 }
 
 main img {
-	width: 26rem;
-	height: 26rem;
-	border: 0.375rem solid;
-	margin: 1rem;
+    width: 26rem;
+    height: 26rem;
+    border: 0.375rem solid;
+    margin: 1rem;
+    transition: transform 0.3s ease;
 }
+
+main img:hover {
+    transform: rotate(10deg) scale(1.1);
+}
+
 
 footer {
 	height: 2rem;

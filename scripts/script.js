@@ -1,3 +1,7 @@
+$(document).ready(function() {
+  $("main").hide().fadeIn(500);
+});
+
 document.addEventListener('DOMContentLoaded', function () {
     const darkModeToggle = document.getElementById('dark-mode');
     const body = document.body;
@@ -18,4 +22,3 @@ document.addEventListener('DOMContentLoaded', function () {
       }
     });
   });
-  
