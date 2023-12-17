@@ -4,14 +4,33 @@
 }
 
 :root {
-	--color: #1D1D1F;
-	--background-color: #FAF9F6;
+	--text-color: #1D1B1B;
+	--background-color: #EC4D36;
 	--footer-color: #6E6E73;
+}
+
+.dark-mode {
+	color: var(--background-color);
+	background-color: var(--text-color);
+}
+
+.dark-mode svg, .dark-mode svg .activeSvg, .dark-mode svg:hover polyline {
+	fill: var(--background-color);
+}
+
+.dark-mode a, .dark-mode button {
+	color: var(--background-color);
+}
+
+.dark-mode button {
+	text-decoration: underline;
+	text-decoration-thickness: 0.2rem;
+	text-underline-offset: 0.2rem;
 }
 
 body {
 	font-family: sans-serif;
-	color: var(--color);
+	color: var(--text-color);
 	background: var(--background-color);
 }
 
@@ -22,13 +41,17 @@ header {
 	margin: 1rem;
 }
 
-header a {
+header > a {
 	width: 5rem;
 	height: 5rem;
 }
 
-header img:hover {
-	background-image: url("../images/logo.svg");
+svg, .activeSvg, svg:hover polyline {
+	fill: var(--text-color);
+}
+
+svg polyline {
+	fill: none;
 }
 
 ul {
@@ -41,20 +64,32 @@ li {
 	margin-left: 1rem;
 }
 
-a {
-	color: var(--color);
+a, button {
+	color: var(--text-color);
 }
 
-nav a {
+button {
+	background-color: transparent;
+	border-width: 0;
+	font-family: inherit;
+	font-size: inherit;
+	font-style: inherit;
+	font-weight: inherit;
+	line-height: inherit;
+	padding: 0;
+}
+
+nav a, button {
 	font-size: 2rem;
 	font-weight: 300;
 	text-decoration: none;
 }
 
-a:hover, #active {
+a:hover, button:hover, #active {
 	text-decoration: underline;
 	text-decoration-thickness: 0.2rem;
 	text-underline-offset: 0.2rem;
+	cursor: pointer;
 }
 
 main {
