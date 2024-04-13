@@ -199,6 +199,10 @@ footer p {
 	#back {
 		flex-direction: row;
 	}
+
+	#single {
+		align-items: baseline;
+	}
 }
 
 @media (max-width: 700px) {
