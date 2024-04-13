@@ -33,6 +33,11 @@
 	text-underline-offset: 0.2rem;
 }
 
+.dark-mode main li {
+	background-color: var(--background-color);
+	color: var(--text-color);
+}
+
 body {
 	font-family: sans-serif;
 	color: var(--text-color);
@@ -46,7 +51,8 @@ header {
 	display: flex;
 	justify-content: space-between;
 	align-items: center;
-	margin: 1rem;
+	margin: 2rem 2rem 1rem;
+	user-select: none;
 }
 
 header > a {
@@ -69,6 +75,9 @@ ul {
 li {
 	list-style: none;
 	display: inline-block;
+}
+
+header li {
 	padding-left: 1rem;
 }
 
@@ -98,24 +107,31 @@ a:hover, button:hover, #active {
 }
 
 main {
-	margin-bottom: 5rem;
 	display: flex;
 	flex-wrap: wrap;
 	justify-content: space-evenly;
 	align-items: center;
 	flex-grow: 1;
+	padding: 0 2rem;
+}
+
+main li {
+	background-color: var(--text-color);
+	color: var(--background-color);
+	padding: 0.2rem 0.5rem;
+	border-radius: 2rem;
+	font-size: 1rem;
+	margin: 0.1rem 0;
+	user-select: none;
 }
 
 #portfolio > section {
-	flex-basis: 25%;
+	width: 33%;
+	padding: 1rem;
 }
 
 #portfolio {
 	align-items: baseline;
-}
-
-section {
-	margin: 1rem;
 }
 
 h1 {
@@ -131,6 +147,10 @@ p, section a {
 	font-size: 2.3rem;
 	text-decoration: none;
 	color: var(--text-color);
+}
+
+section a {
+	user-select: none;
 }
 
 #br {
@@ -152,12 +172,24 @@ footer p {
 	margin-bottom: 1rem;
 }
 
+@media (min-width: 1920px) {
+	#portfolio > section {
+		width: 25%;
+	}
+}
+
+@media (max-width: 1018px) {
+	#portfolio > section {
+		width: 50%;
+	}
+}
+
 @media (max-width: 900px) {
 	header {
 		flex-direction: column;
 	}
 
-	ul {
+	header ul {
 		display: flex;
 		flex-wrap: wrap;
 		justify-content: center;
@@ -166,5 +198,22 @@ footer p {
 
 	#back {
 		flex-direction: row;
+	}
+}
+
+@media (max-width: 700px) {
+	#portfolio > section {
+		width: 100%;
+	}
+
+	h1, p, section a {
+		font-size: 2rem;
+	}
+}
+
+@media (max-width: 28rem) {
+	main img {
+		width: 100%;
+		height: auto;
 	}
 }
