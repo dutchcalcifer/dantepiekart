@@ -2,9 +2,11 @@ import express from "express";
 
 const router = express.Router();
 
-// Home route - renders the index.ejs file
 router.get("/", (req, res) => {
-  res.render("index", { title: "Home Page" });
+  res.render("index", {
+    layout: "./partials/layout",
+    title: "Experience Designer",
+  });
 });
 
 export default router;

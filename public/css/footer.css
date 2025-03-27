@@ -1,0 +1,9 @@
+footer {
+  text-align: center;
+
+  p {
+    font-family: "saira-condensed", sans-serif;
+    font-size: clamp(1rem, 1.5vw, 1.25rem);
+    margin-bottom: 0.5em;
+  }
+}
