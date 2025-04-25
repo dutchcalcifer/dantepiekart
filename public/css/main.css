@@ -1,0 +1,128 @@
+main {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  flex-grow: 1;
+  margin: clamp(1rem, 2.5vw, 2rem) clamp(1rem, 2.5vw, 2rem) 0;
+
+  h1 {
+    font-family: "saira", sans-serif;
+    font-size: clamp(2rem, 5vw, 3.125rem);
+    font-weight: 300;
+  }
+
+  h2 {
+    font-weight: 600;
+    font-size: clamp(3rem, 8vw, 9.375rem);
+    width: min-content;
+    text-align: center;
+    line-height: 90%;
+  }
+
+  p {
+    font-family: "saira", sans-serif;
+    font-size: clamp(1rem, 5vw, 2.125rem);
+    font-weight: 300;
+    max-width: 50ch;
+    line-height: 125%;
+
+    &:first-of-type {
+      padding-top: clamp(1rem, 2.5vw, 2rem);
+    }
+  }
+
+  li {
+    list-style: none;
+    align-items: center;
+    text-decoration: none;
+    color: var(--text-color);
+    display: flex;
+    font-size: clamp(1rem, 5vw, 2.125rem);
+    font-weight: 300;
+    max-width: 50ch;
+    line-height: 125%;
+  }
+
+  a {
+    text-decoration: none;
+    font-family: "saira", sans-serif;
+    color: var(--text-color);
+    display: flex;
+    font-size: clamp(1rem, 5vw, 2.125rem);
+    font-weight: 300;
+    max-width: 50ch;
+    line-height: 125%;
+    width: fit-content;
+
+    &.margin {
+      margin-top: clamp(1rem, 2.5vw, 2rem);
+    }
+
+    &::before {
+      content: "";
+      display: inline-block;
+      mask: url("../vectors/arrow.svg") no-repeat center / contain;
+      background-color: var(--text-color);
+      width: clamp(1rem, 2vw, 1.98rem);
+      aspect-ratio: 1 / 1;
+      margin-right: 0.5rem;
+    }
+
+    &:hover {
+      color: var(--secondary-color);
+
+      &::before {
+        background-color: var(--secondary-color);
+      }
+    }
+
+    /* Rotate the arrow for .back links */
+    &.back::before {
+      transform: rotate(180deg);
+    }
+  }
+
+  .version-1 {
+    p {
+      padding-bottom: clamp(1rem, 2.5vw, 2rem);
+
+      &:last-of-type {
+        padding-bottom: 0;
+      }
+    }
+  }
+
+  .version-2 {
+    p:nth-of-type(2n) {
+      padding-bottom: clamp(1rem, 2.5vw, 2rem);
+    }
+  }
+
+  .version-3 {
+    ul {
+      padding-top: clamp(1rem, 2.5vw, 2rem);
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: clamp(0.5rem, 2.5vw, 1rem) clamp(2rem, 2.5vw, 2.5rem);
+    }
+  }
+
+  .version-4 {
+    li {
+      padding-bottom: clamp(1rem, 2.5vw, 2rem);
+
+      &:first-of-type {
+        padding-top: clamp(1rem, 2.5vw, 2rem);
+      }
+    }
+  }
+
+  .version-5 {
+    li {
+      list-style: disc;
+      display: list-item;
+      margin-left: 2rem;
+    }
+  }
+}

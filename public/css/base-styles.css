@@ -31,6 +31,10 @@
     url("../fonts/saira-condensed.ttf") format("truetype");
 }
 
+@view-transition {
+  navigation: auto;
+}
+
 body {
   font-family: "inter", "saira", "saira-condensed", sans-serif;
   background-color: var(--background-color);
@@ -39,26 +43,4 @@ body {
   display: flex;
   flex-direction: column;
   min-height: 100dvh;
-}
-
-main {
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
-  flex-grow: 1;
-}
-
-h1 {
-  font-family: "saira", sans-serif;
-  font-size: clamp(2rem, 5vw, 3.125rem);
-  font-weight: 300;
-}
-
-h2 {
-  font-weight: 600;
-  font-size: clamp(3rem, 8vw, 9.375rem);
-  width: min-content;
-  text-align: center;
-  line-height: 90%;
 }

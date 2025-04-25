@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Dante Piekart - <%= title %></title>
+    <link rel="stylesheet" href="/css/styles.css" />
+    <link rel="icon" type="image/x-icon" href="/favicon/favicon.ico" />
+  </head>
+  <body>
+    <header>
+      <img src="/vectors/logo.svg" alt="logo" />
+      <nav>
+        <ul>
+          <li><input type="checkbox" id="menu" /></li>
+          <li>
+            <a href="/" class="<%= currentPath === '/' ? 'active' : '' %>"
+              >HOME</a
+            >
+          </li>
+          <li>
+            <a
+              href="/about"
+              class="<%= currentPath.startsWith('/about') ? 'active' : '' %>"
+              >ABOUT ME</a
+            >
+          </li>
+          <li>
+            <a
+              href="/education"
+              class="<%= currentPath.startsWith('/education') ? 'active' : '' %>"
+              >EDUCATION</a
+            >
+          </li>
+          <li>
+            <a
+              href="/portfolio"
+              class="<%= currentPath.startsWith('/portfolio') ? 'active' : '' %>"
+              >PORTFOLIO</a
+            >
+          </li>
+          <li>
+            <a
+              href="/contact"
+              class="<%= currentPath.startsWith('/contact') ? 'active' : '' %>"
+              >CONTACT</a
+            >
+          </li>
+        </ul>
+      </nav>
+    </header>
+    <main><%- body %></main>
+    <footer>
+      <p>Copyright © 2022-2025 Dante Piekart. All Rights Reserved.</p>
+    </footer>
+  </body>
+</html>
