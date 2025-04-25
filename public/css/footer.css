@@ -3,7 +3,7 @@ footer {
 
   p {
     font-family: "saira-condensed", sans-serif;
-    font-size: clamp(1rem, 1.5vw, 1.25rem);
+    font-size: clamp(0.8rem, 1.5vw, 1.25rem);
     margin-bottom: 0.5em;
   }
 }

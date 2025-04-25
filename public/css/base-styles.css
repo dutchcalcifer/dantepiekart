@@ -51,13 +51,13 @@ main {
 
 h1 {
   font-family: "saira", sans-serif;
-  font-size: clamp(3rem, 5vw, 3.125rem);
+  font-size: clamp(2rem, 5vw, 3.125rem);
   font-weight: 300;
 }
 
 h2 {
   font-weight: 600;
-  font-size: clamp(4rem, 8vw, 9.375rem);
+  font-size: clamp(3rem, 8vw, 9.375rem);
   width: min-content;
   text-align: center;
   line-height: 90%;
