@@ -32,6 +32,10 @@
   animation: spin 20s linear infinite;
 }
 
+.darken {
+  filter: brightness(0.5);
+}
+
 @keyframes spin {
   0% {
     transform: rotate(0deg);

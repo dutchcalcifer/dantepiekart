@@ -30,7 +30,9 @@
   </head>
   <body>
     <div class="background-outer-container">
-      <div class="background-inner-container"><div class="blob"></div></div>
+      <div class="background-inner-container">
+        <div class="blob <%= currentPath !== '/' ? 'darken' : '' %>"></div>
+      </div>
     </div>
     <header>
       <a href="/"><img src="/vectors/logo.svg" alt="logo" /></a>
