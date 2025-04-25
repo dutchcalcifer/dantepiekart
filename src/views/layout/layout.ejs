@@ -4,12 +4,36 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Dante Piekart - <%= title %></title>
+    <link
+      rel="preload"
+      href="/fonts/inter.woff2"
+      as="font"
+      type="font/woff2"
+      crossorigin="anonymous"
+    />
+    <link
+      rel="preload"
+      href="/fonts/saira.woff2"
+      as="font"
+      type="font/woff2"
+      crossorigin="anonymous"
+    />
+    <link
+      rel="preload"
+      href="/fonts/saira-condensed.woff2"
+      as="font"
+      type="font/woff2"
+      crossorigin="anonymous"
+    />
     <link rel="stylesheet" href="/css/styles.css" />
     <link rel="icon" type="image/x-icon" href="/favicon/favicon.ico" />
   </head>
   <body>
+    <div class="background-outer-container">
+      <div class="background-inner-container"><div class="blob"></div></div>
+    </div>
     <header>
-      <img src="/vectors/logo.svg" alt="logo" />
+      <a href="/"><img src="/vectors/logo.svg" alt="logo" /></a>
       <nav>
         <ul>
           <li><input type="checkbox" id="menu" /></li>

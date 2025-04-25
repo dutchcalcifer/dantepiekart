@@ -7,6 +7,14 @@ header {
   img {
     width: clamp(3rem, 5vmin, 6rem);
     height: auto;
+    transition: all 0.3s ease;
+
+    &:hover {
+      cursor: pointer;
+      outline: 2px solid var(--secondary-color);
+      outline-offset: 5px;
+      border-radius: 10%;
+    }
   }
 
   nav {
@@ -23,6 +31,7 @@ header {
     background-color: var(--text-color);
     transition: transform 0.3s ease;
     padding: clamp(1.2rem, 2.5vw, 2rem) clamp(2.5rem, 2.5vw, 2rem);
+    view-transition-name: nav-transition;
 
     li {
       list-style: none;

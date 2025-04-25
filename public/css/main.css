@@ -5,6 +5,7 @@ main {
   align-items: center;
   flex-grow: 1;
   margin: clamp(1rem, 2.5vw, 2rem) clamp(1rem, 2.5vw, 2rem) 0;
+  padding-bottom: 5rem;
 
   h1 {
     font-family: "saira", sans-serif;

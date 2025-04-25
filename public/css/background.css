@@ -1,0 +1,43 @@
+.background-outer-container {
+  position: fixed;
+  height: 100%;
+  width: 100%;
+  z-index: -1;
+  filter: blur(5rem);
+}
+
+.background-inner-container {
+  border-radius: 999px;
+  position: absolute;
+  inset: 0;
+  overflow: hidden;
+  transform: scale(0.75);
+}
+
+.blob {
+  position: absolute;
+  width: 100vmax;
+  height: 100vmax;
+  inset: 0;
+  margin: auto;
+  background: conic-gradient(
+    in oklab,
+    oklab(0.6497 0.2268 0.0732),
+    oklab(0.7652 0.0807 0.1555),
+    oklab(0.8652 -0.0012 0.1768),
+    oklab(0.7303 -0.1638 0.1046),
+    oklab(0.6028 -0.0474 -0.2125),
+    oklab(0.6149 0.1436 -0.1572)
+  );
+  animation: spin 20s linear infinite;
+}
+
+@keyframes spin {
+  0% {
+    transform: rotate(0deg);
+  }
+
+  100% {
+    transform: rotate(1turn);
+  }
+}
