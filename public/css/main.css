@@ -16,7 +16,7 @@ main {
   h2 {
     font-weight: 600;
     font-size: clamp(3rem, 8vw, 9.375rem);
-    width: min-content;
+    width: 12ch;
     text-align: center;
     line-height: 90%;
   }
