@@ -34,13 +34,16 @@ header {
     view-transition-name: nav-transition;
     z-index: 2;
 
+    label {
+      visibility: hidden;
+    }
+
     li {
       list-style: none;
 
       &:first-child {
         transform: translateX(-106%);
         transition: transform 0.3s ease;
-        padding-bottom: clamp(1.2rem, 2.5vw, 2rem);
       }
 
       a {

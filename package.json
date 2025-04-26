@@ -1,5 +1,6 @@
 {
   "name": "dantepiekart",
+  "private": true,
   "version": "1.0.0",
   "main": "app.js",
   "scripts": {
@@ -17,6 +18,7 @@
   ],
   "author": "Dante Piekart",
   "license": "UNLICENSED",
+  "homepage": "https://dantepiekart.com",
   "description": "Portfolio of Dante Piekart",
   "dependencies": {
     "ejs": "^3.1.10",
