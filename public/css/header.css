@@ -1,5 +1,4 @@
 header {
-  position: relative;
   display: flex;
   justify-content: space-between;
   align-items: center;
@@ -67,14 +66,6 @@ header {
             background-color: var(--secondary-color);
           }
         }
-
-        &:active {
-          color: var(--secondary-color);
-        }
-
-        &:active::before {
-          background-color: var(--secondary-color);
-        }
       }
 
       input {
@@ -125,14 +116,6 @@ header {
             color: var(--background-color);
           }
         }
-
-        &:active::before {
-          background-color: var(--secondary-color);
-        }
-
-        &:active::after {
-          color: var(--secondary-color);
-        }
       }
     }
 
@@ -158,41 +141,5 @@ header {
 
   &:has(#menu:checked) .nav-overlay {
     display: block;
-  }
-
-  @media (hover: hover) and (pointer: fine) {
-    nav {
-      li {
-        a {
-          &:hover,
-          &.active {
-            color: var(--secondary-color);
-
-            &::before {
-              background-color: var(--secondary-color);
-            }
-          }
-        }
-
-        input {
-          &:hover,
-          &:checked:hover {
-            &::before {
-              background-color: var(--secondary-color);
-            }
-
-            &::after {
-              color: var(--secondary-color);
-            }
-          }
-        }
-      }
-    }
-  }
-
-  img,
-  nav li input,
-  nav li a {
-    -webkit-tap-highlight-color: transparent;
   }
 }
