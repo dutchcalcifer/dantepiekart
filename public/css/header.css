@@ -35,7 +35,7 @@ header {
     z-index: 2;
 
     label {
-      visibility: hidden;
+      display: none;
     }
 
     li {
@@ -44,6 +44,7 @@ header {
       &:first-child {
         transform: translateX(-106%);
         transition: transform 0.3s ease;
+        padding-bottom: clamp(1.2rem, 2.5vw, 2rem);
       }
 
       a {

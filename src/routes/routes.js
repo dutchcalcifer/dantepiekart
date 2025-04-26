@@ -18,14 +18,6 @@ router.get("/about", (req, res) => {
   });
 });
 
-router.get("/education", (req, res) => {
-  res.render("pages/education", {
-    layout: "layout/layout",
-    title: "Education",
-    currentPath: req.path,
-  });
-});
-
 router.get("/portfolio", (req, res) => {
   res.render("pages/portfolio", {
     layout: "layout/layout",
@@ -86,6 +78,14 @@ router.get("/portfolio/intouch", (req, res) => {
   res.render("pages/portfolio/intouch", {
     layout: "layout/layout",
     title: "InTouch",
+    currentPath: req.path,
+  });
+});
+
+router.get("/education", (req, res) => {
+  res.render("pages/education", {
+    layout: "layout/layout",
+    title: "Education",
     currentPath: req.path,
   });
 });
