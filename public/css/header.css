@@ -1,4 +1,5 @@
 header {
+  position: relative;
   display: flex;
   justify-content: space-between;
   align-items: center;
@@ -32,12 +33,13 @@ header {
     transition: transform 0.3s ease;
     padding: clamp(1.2rem, 2.5vw, 2rem) clamp(2.5rem, 2.5vw, 2rem);
     view-transition-name: nav-transition;
+    z-index: 2;
 
     li {
       list-style: none;
 
       &:first-child {
-        transform: translateX(-100%);
+        transform: translateX(-106%);
         transition: transform 0.3s ease;
         padding-bottom: clamp(1.2rem, 2.5vw, 2rem);
       }
@@ -64,6 +66,14 @@ header {
           &::before {
             background-color: var(--secondary-color);
           }
+        }
+
+        &:active {
+          color: var(--secondary-color);
+        }
+
+        &:active::before {
+          background-color: var(--secondary-color);
         }
       }
 
@@ -115,6 +125,14 @@ header {
             color: var(--background-color);
           }
         }
+
+        &:active::before {
+          background-color: var(--secondary-color);
+        }
+
+        &:active::after {
+          color: var(--secondary-color);
+        }
       }
     }
 
@@ -125,5 +143,56 @@ header {
         transform: translateX(0);
       }
     }
+  }
+
+  .nav-overlay {
+    display: none;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100dvh;
+    cursor: default;
+    z-index: 1;
+  }
+
+  &:has(#menu:checked) .nav-overlay {
+    display: block;
+  }
+
+  @media (hover: hover) and (pointer: fine) {
+    nav {
+      li {
+        a {
+          &:hover,
+          &.active {
+            color: var(--secondary-color);
+
+            &::before {
+              background-color: var(--secondary-color);
+            }
+          }
+        }
+
+        input {
+          &:hover,
+          &:checked:hover {
+            &::before {
+              background-color: var(--secondary-color);
+            }
+
+            &::after {
+              color: var(--secondary-color);
+            }
+          }
+        }
+      }
+    }
+  }
+
+  img,
+  nav li input,
+  nav li a {
+    -webkit-tap-highlight-color: transparent;
   }
 }
