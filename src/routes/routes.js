@@ -5,7 +5,7 @@ const router = express.Router();
 router.get("/", (req, res) => {
   res.render("index", {
     layout: "layout/layout",
-    title: "Experience Designer",
+    title: "UX/Front-end Developer",
     currentPath: req.path,
   });
 });
