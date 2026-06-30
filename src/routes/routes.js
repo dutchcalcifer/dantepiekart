@@ -5,7 +5,7 @@ const router = express.Router();
 router.get("/", (req, res) => {
   res.render("index", {
     layout: "layout/layout",
-    title: "UX/Front-end Developer",
+    title: "",
     currentPath: req.path,
   });
 });
@@ -13,7 +13,7 @@ router.get("/", (req, res) => {
 router.get("/about", (req, res) => {
   res.render("pages/about", {
     layout: "layout/layout",
-    title: "About",
+    title: "- About",
     currentPath: req.path,
   });
 });
@@ -21,7 +21,23 @@ router.get("/about", (req, res) => {
 router.get("/portfolio", (req, res) => {
   res.render("pages/portfolio", {
     layout: "layout/layout",
-    title: "Portfolio",
+    title: "- Portfolio",
+    currentPath: req.path,
+  });
+});
+
+router.get("/portfolio/autoweek", (req, res) => {
+  res.render("pages/portfolio/autoweek", {
+    layout: "layout/layout",
+    title: "- AutoWeek",
+    currentPath: req.path,
+  });
+});
+
+router.get("/portfolio/cmdnavigator", (req, res) => {
+  res.render("pages/portfolio/cmdnavigator", {
+    layout: "layout/layout",
+    title: "- CMD Navigator",
     currentPath: req.path,
   });
 });
@@ -29,7 +45,7 @@ router.get("/portfolio", (req, res) => {
 router.get("/portfolio/fdd", (req, res) => {
   res.render("pages/portfolio/fdd", {
     layout: "layout/layout",
-    title: "FD&D",
+    title: "- FD&D",
     currentPath: req.path,
   });
 });
@@ -37,7 +53,7 @@ router.get("/portfolio/fdd", (req, res) => {
 router.get("/portfolio/tweakers", (req, res) => {
   res.render("pages/portfolio/tweakers", {
     layout: "layout/layout",
-    title: "Tweakers.net",
+    title: "- Tweakers.net",
     currentPath: req.path,
   });
 });
@@ -45,7 +61,7 @@ router.get("/portfolio/tweakers", (req, res) => {
 router.get("/portfolio/exchange", (req, res) => {
   res.render("pages/portfolio/exchange", {
     layout: "layout/layout",
-    title: "Exchange Program",
+    title: "- Exchange Program",
     currentPath: req.path,
   });
 });
@@ -53,7 +69,7 @@ router.get("/portfolio/exchange", (req, res) => {
 router.get("/portfolio/webuildapps", (req, res) => {
   res.render("pages/portfolio/webuildapps", {
     layout: "layout/layout",
-    title: "Webuildapps",
+    title: "- Webuildapps",
     currentPath: req.path,
   });
 });
@@ -61,7 +77,7 @@ router.get("/portfolio/webuildapps", (req, res) => {
 router.get("/portfolio/colors", (req, res) => {
   res.render("pages/portfolio/colors", {
     layout: "layout/layout",
-    title: "Colors",
+    title: "- Colors",
     currentPath: req.path,
   });
 });
@@ -69,7 +85,7 @@ router.get("/portfolio/colors", (req, res) => {
 router.get("/portfolio/canvasheroes", (req, res) => {
   res.render("pages/portfolio/canvasheroes", {
     layout: "layout/layout",
-    title: "CanvasHeroes",
+    title: "- CanvasHeroes",
     currentPath: req.path,
   });
 });
@@ -77,7 +93,7 @@ router.get("/portfolio/canvasheroes", (req, res) => {
 router.get("/portfolio/intouch", (req, res) => {
   res.render("pages/portfolio/intouch", {
     layout: "layout/layout",
-    title: "InTouch",
+    title: "- InTouch",
     currentPath: req.path,
   });
 });
@@ -85,7 +101,7 @@ router.get("/portfolio/intouch", (req, res) => {
 router.get("/education", (req, res) => {
   res.render("pages/education", {
     layout: "layout/layout",
-    title: "Education",
+    title: "- Education",
     currentPath: req.path,
   });
 });
@@ -93,7 +109,7 @@ router.get("/education", (req, res) => {
 router.get("/contact", (req, res) => {
   res.render("pages/contact", {
     layout: "layout/layout",
-    title: "Contact",
+    title: "- Contact",
     currentPath: req.path,
   });
 });

@@ -15,10 +15,9 @@ main {
 
   h2 {
     font-weight: 600;
-    font-size: clamp(3rem, 8vw, 9.375rem);
-    width: 12ch;
+    font-size: clamp(2rem, 8vw, 7rem);
     text-align: center;
-    line-height: 90%;
+    line-height: 100%;
   }
 
   p {
@@ -95,7 +94,7 @@ main {
   }
 
   .version-2 {
-    p:nth-of-type(2n) {
+    p:nth-of-type(3n) {
       padding-bottom: clamp(1rem, 2.5vw, 2rem);
     }
   }
