@@ -88,15 +88,10 @@
     <footer>
       <p>&copy; 2026 Dante Piekart. All rights reserved.</p>
     </footer>
-    <script>
-      window.va =
-        window.va ||
-        function () {
-          (window.vaq = window.vaq || []).push(arguments);
-        };
-    </script>
-    <script defer src="/_vercel/insights/script.js"></script>
+    <!-- Vercel Web Analytics using @vercel/analytics package -->
+    <script type="module" src="/js/init-analytics.js"></script>
 
+    <!-- Vercel Speed Insights (script tag approach) -->
     <script>
       window.si =
         window.si ||
