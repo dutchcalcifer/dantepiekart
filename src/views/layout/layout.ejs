@@ -3,102 +3,60 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Dante Piekart <%= title %></title>
-    <meta
-      name="description"
-      content="Digital Designer with Front-end Skills."
-    />
-    <link
-      rel="preload"
-      href="/fonts/inter.woff2"
-      as="font"
-      type="font/woff2"
-      crossorigin="anonymous"
-    />
-    <link
-      rel="preload"
-      href="/fonts/saira.woff2"
-      as="font"
-      type="font/woff2"
-      crossorigin="anonymous"
-    />
-    <link
-      rel="preload"
-      href="/fonts/saira-condensed.woff2"
-      as="font"
-      type="font/woff2"
-      crossorigin="anonymous"
-    />
-    <link rel="preload" href="/css/styles.css" as="style" />
+    <title><%= title %></title>
+    <meta name="description" content="<%= description %>" />
+    <meta name="theme-color" content="#000000" />
+    <% if (noindex) { %><meta name="robots" content="noindex, follow" /><% } %>
+    <% if (canonicalUrl) { %><link rel="canonical" href="<%= canonicalUrl %>" /><% } %>
+    <meta property="og:type" content="website" />
+    <meta property="og:site_name" content="<%= site.name %>" />
+    <meta property="og:locale" content="en_GB" />
+    <meta property="og:title" content="<%= title %>" />
+    <meta property="og:description" content="<%= description %>" />
+    <% if (canonicalUrl) { %><meta property="og:url" content="<%= canonicalUrl %>" /><% } %>
+    <meta property="og:image" content="<%= site.url + site.socialImage %>" />
+    <meta property="og:image:type" content="image/png" />
+    <meta property="og:image:width" content="1200" />
+    <meta property="og:image:height" content="630" />
+    <meta property="og:image:alt" content="<%= site.socialImageAlt %>" />
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:title" content="<%= title %>" />
+    <meta name="twitter:description" content="<%= description %>" />
+    <meta name="twitter:image" content="<%= site.url + site.socialImage %>" />
+    <meta name="twitter:image:alt" content="<%= site.socialImageAlt %>" />
+    <link rel="preload" href="/fonts/inter.woff2" as="font" type="font/woff2" crossorigin="anonymous" />
+    <link rel="preload" href="/fonts/saira.woff2" as="font" type="font/woff2" crossorigin="anonymous" />
+    <link rel="preload" href="/fonts/saira-condensed.woff2" as="font" type="font/woff2" crossorigin="anonymous" />
     <link rel="stylesheet" href="/css/styles.css" />
     <link rel="icon" type="image/x-icon" href="/favicon/favicon.ico" />
+    <script defer src="/js/menu.js"></script>
   </head>
   <body>
-    <div class="background-outer-container">
+    <a class="skip-link" href="#main-content">Skip to content</a>
+    <div class="background-outer-container" aria-hidden="true">
       <div class="background-inner-container">
         <div class="blob <%= currentPath !== '/' ? 'darken' : '' %>"></div>
       </div>
     </div>
     <header>
-      <a href="/"><img src="/vectors/logo.svg" alt="logo" /></a>
-      <nav>
-        <ul>
-          <li>
-            <input type="checkbox" id="menu" />
-            <label for="menu">Menu</label>
-          </li>
-          <li>
-            <a href="/" class="<%= currentPath === '/' ? 'active' : '' %>"
-              >HOME</a
-            >
-          </li>
-          <li>
-            <a
-              href="/about"
-              class="<%= currentPath.startsWith('/about') ? 'active' : '' %>"
-              >ABOUT ME</a
-            >
-          </li>
-          <li>
-            <a
-              href="/portfolio"
-              class="<%= currentPath.startsWith('/portfolio') ? 'active' : '' %>"
-              >PORTFOLIO</a
-            >
-          </li>
-          <li>
-            <a
-              href="/education"
-              class="<%= currentPath.startsWith('/education') ? 'active' : '' %>"
-              >EDUCATION</a
-            >
-          </li>
-          <li>
-            <a
-              href="/contact"
-              class="<%= currentPath.startsWith('/contact') ? 'active' : '' %>"
-              >CONTACT</a
-            >
-          </li>
-        </ul>
-      </nav>
-      <label for="menu" class="nav-overlay"></label>
+      <a class="home-link" href="/" aria-label="Dante Piekart home"><img src="/vectors/logo.svg" alt="" /></a>
+      <button type="button" class="menu-toggle" id="menu-toggle" aria-controls="menu-dialog" aria-expanded="false" aria-haspopup="dialog" hidden>MENU</button>
+      <dialog id="menu-dialog" aria-labelledby="menu-title">
+        <div class="menu-header">
+          <h2 id="menu-title" class="visually-hidden">Main navigation</h2>
+          <button type="button" class="menu-close" id="menu-close">CLOSE MENU</button>
+        </div>
+        <nav aria-label="Main navigation"><%- include('../partials/navigation') %></nav>
+      </dialog>
+      <noscript><nav class="fallback-nav" aria-label="Main navigation"><%- include('../partials/navigation') %></nav></noscript>
     </header>
-    <main><%- body %></main>
-    <footer>
-      <p>&copy; 2026 Dante Piekart. All rights reserved.</p>
-    </footer>
-    <!-- Vercel Web Analytics using @vercel/analytics package -->
-    <script type="module" src="/js/init-analytics.js"></script>
-
-    <!-- Vercel Speed Insights (script tag approach) -->
+    <main id="main-content" tabindex="-1"><%- body %></main>
+    <footer><p>&copy; <%= currentYear %> Dante Piekart. All rights reserved.</p></footer>
     <script>
-      window.si =
-        window.si ||
-        function () {
-          (window.siq = window.siq || []).push(arguments);
-        };
+      window.va = window.va || function () { (window.vaq = window.vaq || []).push(arguments); };
+      window.si = window.si || function () { (window.siq = window.siq || []).push(arguments); };
     </script>
+    <script defer src="/_vercel/insights/script.js"></script>
     <script defer src="/_vercel/speed-insights/script.js"></script>
   </body>
 </html>

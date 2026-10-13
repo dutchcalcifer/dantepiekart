@@ -62,8 +62,9 @@ main {
     &::before {
       content: "";
       display: inline-block;
-      mask: url("../vectors/arrow.svg") no-repeat center / contain;
+      mask: var(--arrow-icon) no-repeat center / contain;
       background-color: var(--text-color);
+      flex-shrink: 0;
       width: clamp(1rem, 2vw, 1.98rem);
       aspect-ratio: 1 / 1;
       margin-right: 0.5rem;

@@ -1,117 +1,47 @@
 import express from "express";
+import { pages, projects } from "../content/pages.js";
+import { site } from "../config/site.js";
 
 const router = express.Router();
 
-router.get("/", (req, res) => {
-  res.render("index", {
-    layout: "layout/layout",
-    title: "",
-    currentPath: req.path,
-  });
+// Keep one URL per page, including when visitors arrive with a trailing slash.
+router.use((req, res, next) => {
+  if (req.path.length > 1 && req.path.endsWith("/")) {
+    const queryStart = req.originalUrl.indexOf("?");
+    const query = queryStart === -1 ? "" : req.originalUrl.slice(queryStart);
+    const normalizedPath = `/${req.path.replace(/^\/+|\/+$/g, "")}`;
+    return res.redirect(308, `${normalizedPath}${query}`);
+  }
+  next();
 });
 
-router.get("/about", (req, res) => {
-  res.render("pages/about", {
-    layout: "layout/layout",
-    title: "- About",
-    currentPath: req.path,
-  });
+router.get("/sitemap.xml", (req, res) => {
+  const urls = pages
+    .map((page) => `<url><loc>${site.url}${page.path}</loc></url>`)
+    .join("");
+  res
+    .type("application/xml")
+    .send(
+      `<?xml version="1.0" encoding="UTF-8"?>\n<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">${urls}</urlset>`,
+    );
 });
 
-router.get("/portfolio", (req, res) => {
-  res.render("pages/portfolio", {
-    layout: "layout/layout",
-    title: "- Portfolio",
-    currentPath: req.path,
-  });
+router.get("/robots.txt", (req, res) => {
+  res
+    .type("text/plain")
+    .send(`User-agent: *\nAllow: /\n\nSitemap: ${site.url}/sitemap.xml\n`);
 });
 
-router.get("/portfolio/autoweek", (req, res) => {
-  res.render("pages/portfolio/autoweek", {
-    layout: "layout/layout",
-    title: "- AutoWeek",
-    currentPath: req.path,
+for (const page of pages) {
+  router.get(page.path, (req, res) => {
+    res.render(page.view, {
+      title: page.title,
+      description: page.description,
+      canonicalUrl: `${site.url}${page.path}`,
+      project: page.project,
+      projects,
+    });
   });
-});
-
-router.get("/portfolio/cmdnavigator", (req, res) => {
-  res.render("pages/portfolio/cmdnavigator", {
-    layout: "layout/layout",
-    title: "- CMD Navigator",
-    currentPath: req.path,
-  });
-});
-
-router.get("/portfolio/fdd", (req, res) => {
-  res.render("pages/portfolio/fdd", {
-    layout: "layout/layout",
-    title: "- FD&D",
-    currentPath: req.path,
-  });
-});
-
-router.get("/portfolio/tweakers", (req, res) => {
-  res.render("pages/portfolio/tweakers", {
-    layout: "layout/layout",
-    title: "- Tweakers.net",
-    currentPath: req.path,
-  });
-});
-
-router.get("/portfolio/exchange", (req, res) => {
-  res.render("pages/portfolio/exchange", {
-    layout: "layout/layout",
-    title: "- Exchange Program",
-    currentPath: req.path,
-  });
-});
-
-router.get("/portfolio/webuildapps", (req, res) => {
-  res.render("pages/portfolio/webuildapps", {
-    layout: "layout/layout",
-    title: "- Webuildapps",
-    currentPath: req.path,
-  });
-});
-
-router.get("/portfolio/colors", (req, res) => {
-  res.render("pages/portfolio/colors", {
-    layout: "layout/layout",
-    title: "- Colors",
-    currentPath: req.path,
-  });
-});
-
-router.get("/portfolio/canvasheroes", (req, res) => {
-  res.render("pages/portfolio/canvasheroes", {
-    layout: "layout/layout",
-    title: "- CanvasHeroes",
-    currentPath: req.path,
-  });
-});
-
-router.get("/portfolio/intouch", (req, res) => {
-  res.render("pages/portfolio/intouch", {
-    layout: "layout/layout",
-    title: "- InTouch",
-    currentPath: req.path,
-  });
-});
-
-router.get("/education", (req, res) => {
-  res.render("pages/education", {
-    layout: "layout/layout",
-    title: "- Education",
-    currentPath: req.path,
-  });
-});
-
-router.get("/contact", (req, res) => {
-  res.render("pages/contact", {
-    layout: "layout/layout",
-    title: "- Contact",
-    currentPath: req.path,
-  });
-});
+}
 
 export default router;

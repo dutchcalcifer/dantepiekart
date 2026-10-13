@@ -1,0 +1,7 @@
+<% const navigation = [ ['/', 'HOME'], ['/about', 'ABOUT ME'], ['/portfolio', 'PORTFOLIO'], ['/education', 'EDUCATION'], ['/contact', 'CONTACT'] ]; %>
+<ul>
+  <% for (const [href, label] of navigation) { %>
+    <% const active = href === '/' ? currentPath === '/' : currentPath === href || currentPath.startsWith(href + '/'); %>
+    <li><a href="<%= href %>" class="<%= active ? 'active' : '' %>" <% if (currentPath === href) { %>aria-current="page"<% } %>><%= label %></a></li>
+  <% } %>
+</ul>

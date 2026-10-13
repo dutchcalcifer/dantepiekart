@@ -1,0 +1,9 @@
+node_modules/
+package-lock.json
+public/files/
+public/fonts/
+public/favicon/
+public/images/
+public/vectors/
+LICENSE.MD
+src/views/**/*.ejs

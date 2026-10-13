@@ -1,0 +1,22 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="630" viewBox="0 0 1200 630">
+  <defs>
+    <radialGradient id="glow">
+      <stop stop-color="#ff5c00" stop-opacity="0.6"/>
+      <stop offset="1" stop-color="#ff5c00" stop-opacity="0"/>
+    </radialGradient>
+    <radialGradient id="blue">
+      <stop stop-color="#354ac9" stop-opacity="0.5"/>
+      <stop offset="1" stop-color="#354ac9" stop-opacity="0"/>
+    </radialGradient>
+  </defs>
+  <rect width="1200" height="630" fill="#080808"/>
+  <ellipse cx="1090" cy="60" rx="700" ry="520" fill="url(#glow)"/>
+  <ellipse cx="940" cy="580" rx="520" ry="400" fill="url(#blue)"/>
+  <path d="M88 108h56m-16-16 16 16-16 16" fill="none" stroke="#ff5c00" stroke-width="5"/>
+  <g fill="#f9f9f9" font-family="Arial, Helvetica, sans-serif">
+    <text x="88" y="254" font-size="80" font-weight="700" letter-spacing="-3">Dante Piekart</text>
+    <text x="92" y="334" font-size="38">Product Designer</text>
+    <text x="92" y="389" font-size="38">&amp; Front-end Developer</text>
+    <text x="92" y="548" font-size="24" fill="#d4d4d4">www.dantepiekart.nl</text>
+  </g>
+</svg>

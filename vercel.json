@@ -1,23 +1,9 @@
 {
-  "version": 2,
-  "builds": [
-    {
-      "src": "app.js",
-      "use": "@vercel/node"
-    },
-    {
-      "src": "src/routes/routes.js",
-      "use": "@vercel/node"
+  "$schema": "https://openapi.vercel.sh/vercel.json",
+  "framework": "express",
+  "functions": {
+    "app.js": {
+      "includeFiles": "src/{views,content}/**"
     }
-  ],
-  "routes": [
-    {
-      "src": "/api/(.*)",
-      "dest": "src/routes/routes.js"
-    },
-    {
-      "src": "/(.*)",
-      "dest": "/app.js"
-    }
-  ]
+  }
 }

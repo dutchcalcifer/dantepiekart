@@ -1,0 +1,55 @@
+<% const facts = [ ['My role', caseStudy.role], ['Team', caseStudy.team], ['Timeframe', caseStudy.timeframe] ].filter(([, value]) => value); %>
+<% if (facts.length) { %>
+  <dl class="project-facts">
+    <% for (const [label, value] of facts) { %>
+      <div><dt><%= label %></dt><dd><%= value %></dd></div>
+    <% } %>
+  </dl>
+<% } %>
+
+<% if (caseStudy.challenge) { %>
+  <section class="case-study-section">
+    <h2 class="project-heading">The challenge</h2>
+    <p><%= caseStudy.challenge %></p>
+  </section>
+<% } %>
+
+<% if (caseStudy.approach.length) { %>
+  <section class="case-study-section">
+    <h2 class="project-heading">My approach</h2>
+    <% for (const step of caseStudy.approach) { %>
+      <section>
+        <h3><%= step.title %></h3>
+        <p><%= step.text %></p>
+      </section>
+    <% } %>
+  </section>
+<% } %>
+
+<% if (caseStudy.gallery.length) { %>
+  <section class="case-study-section">
+    <h2 class="project-heading">Project gallery</h2>
+    <div class="project-gallery">
+      <% for (const image of caseStudy.gallery) { %>
+        <figure>
+          <img src="<%= image.src %>" alt="<%= image.alt %>" width="<%= image.width %>" height="<%= image.height %>" loading="lazy" decoding="async" />
+          <% if (image.caption) { %><figcaption><%= image.caption %></figcaption><% } %>
+        </figure>
+      <% } %>
+    </div>
+  </section>
+<% } %>
+
+<% if (caseStudy.outcome) { %>
+  <section class="case-study-section">
+    <h2 class="project-heading">The outcome</h2>
+    <p><%= caseStudy.outcome %></p>
+  </section>
+<% } %>
+
+<% if (caseStudy.reflections) { %>
+  <section class="case-study-section">
+    <h2 class="project-heading">What I learned</h2>
+    <p><%= caseStudy.reflections %></p>
+  </section>
+<% } %>

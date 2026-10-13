@@ -1,13 +1,8 @@
 <section class="version-3">
   <h1>Portfolio</h1>
   <ul>
-    <li><a href="portfolio/cmdnavigator">CMD Navigator</a></li>
-    <li><a href="portfolio/autoweek">AutoWeek</a></li>
-    <li><a href="portfolio/exchange">Exchange Semester</a></li>
-    <li><a href="portfolio/tweakers">Tweakers.net</a></li>
-    <li><a href="portfolio/colors">Colors</a></li>
-    <li><a href="portfolio/webuildapps">Webuildapps</a></li>
-    <li><a href="portfolio/intouch">InTouch</a></li>
-    <li><a href="portfolio/canvasheroes">CanvasHeroes</a></li>
+    <% for (const project of projects) { %>
+      <li><a href="/portfolio/<%= project.slug %>"><%= project.title %></a></li>
+    <% } %>
   </ul>
 </section>

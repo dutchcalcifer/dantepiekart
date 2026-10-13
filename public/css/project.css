@@ -1,0 +1,67 @@
+.project {
+  width: min(100%, 70rem);
+}
+
+main .project-heading {
+  font:
+    500 clamp(1.4rem, 3vw, 2.125rem) "saira",
+    sans-serif;
+  text-align: left;
+  line-height: 1.25;
+  padding-top: 1.5rem;
+  margin-bottom: 0.5rem;
+}
+
+.project h3 {
+  font:
+    500 clamp(1.2rem, 2.5vw, 1.75rem) "saira",
+    sans-serif;
+  margin-top: 1rem;
+}
+
+.project-facts {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 1rem 2rem;
+  padding-top: 1.5rem;
+  font:
+    300 clamp(1rem, 2vw, 1.5rem) "saira",
+    sans-serif;
+}
+
+.project-facts dt {
+  font-weight: 600;
+}
+
+.case-study-section {
+  margin-top: 1rem;
+}
+
+main .case-study-section p:first-of-type {
+  padding-top: 0;
+}
+
+.project-gallery {
+  display: grid;
+  gap: 1.5rem;
+}
+
+.project-gallery img {
+  display: block;
+  width: 100%;
+  height: auto;
+  border-radius: 0.5rem;
+}
+
+.project-gallery figcaption {
+  margin-top: 0.5rem;
+  font:
+    300 1rem/1.5 "saira",
+    sans-serif;
+}
+
+@media (max-width: 35rem) {
+  main .version-3 ul {
+    grid-template-columns: 1fr;
+  }
+}

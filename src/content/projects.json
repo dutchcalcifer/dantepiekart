@@ -1,0 +1,247 @@
+[
+  {
+    "slug": "cmdnavigator",
+    "title": "CMD Navigator",
+    "description": "CMD Navigator: a graduation project connecting courses, skills and resources to help first-year CMD students navigate their program.",
+    "paragraphs": [
+      "For my graduation project, I designed the CMD Navigator, a mobile-first app that helps first-year CMD students find their way within the program.",
+      "The app acts as a visual layer next to the existing learning platforms, showing how courses, skills, terms and resources are connected. Through flows like Discover, Search and Compass, students can quickly understand where they are, what they are working towards and how everything fits together.",
+      "My process included research, concept development, prototyping and validation with students, teachers and stakeholders."
+    ],
+    "skillsLabel": "Key Skills",
+    "skills": ["UX Research", "Interaction Design", "Prototyping"],
+    "links": [
+      {
+        "label": "DESIGN RATIONALE",
+        "url": "/files/design-rationale.pdf"
+      }
+    ],
+    "caseStudy": {
+      "role": "",
+      "team": "",
+      "timeframe": "",
+      "challenge": "",
+      "approach": [],
+      "outcome": "",
+      "reflections": "",
+      "gallery": []
+    }
+  },
+  {
+    "slug": "autoweek",
+    "title": "AutoWeek",
+    "description": "UX/UI design and front-end development at AutoWeek, improving the Occasions experience and contributing to a Vue 3 upgrade.",
+    "paragraphs": [
+      "During my internship as a UX/UI Designer and Front-end Developer at AutoWeek, I worked within the Product team to improve the user experience of AutoWeek's Occasions section.",
+      "My projects included contributing to the redesign of the AutoWeek platform, improving the Occasions page and supporting the upgrade to Vue 3."
+    ],
+    "skillsLabel": "Key Skills",
+    "skills": ["Vue", "Figma", "HTML, CSS & JavaScript"],
+    "links": [
+      {
+        "label": "WEBSITE",
+        "url": "https://www.autoweek.nl/"
+      }
+    ],
+    "caseStudy": {
+      "role": "",
+      "team": "",
+      "timeframe": "",
+      "challenge": "",
+      "approach": [],
+      "outcome": "",
+      "reflections": "",
+      "gallery": []
+    }
+  },
+  {
+    "slug": "exchange",
+    "title": "Exchange Program",
+    "description": "Dante Piekart's University of Michigan exchange semester: UX design, Django development, information ethics and interactive communication.",
+    "paragraphs": [
+      "In the fall of 2024, I completed an exchange semester at the University of Michigan School of Information.",
+      "During this semester, I explored different sides of design, technology and information science. I built data-driven web applications with Django and Python, studied user experience design in the automotive industry and learned how information technologies can raise ethical questions.",
+      "I also followed courses in project management, interactive communication and writing."
+    ],
+    "skillsLabel": "Courses Taken",
+    "skills": [
+      "Building Data-Driven Web Applications",
+      "Introduction to Information Ethics",
+      "Automotive UX",
+      "Intro to Project Management",
+      "Interactive Communication",
+      "Editing and Style"
+    ],
+    "links": [
+      {
+        "label": "WATCH SHORT",
+        "url": "https://youtu.be/pS7ILsayFFU?si=IBEnCDX4N8OOBPhO"
+      }
+    ],
+    "caseStudy": {
+      "role": "",
+      "team": "",
+      "timeframe": "",
+      "challenge": "",
+      "approach": [],
+      "outcome": "",
+      "reflections": "",
+      "gallery": []
+    }
+  },
+  {
+    "slug": "tweakers",
+    "title": "Tweakers.net",
+    "description": "UX/UI design and front-end development at Tweakers.net, including Pricewatch filters, grids, sliders and A/B testing.",
+    "paragraphs": [
+      "During my internship as a UX/UI Designer and Front-end Developer at Tweakers.net, I worked within the Product team to improve the user experience of the Pricewatch.",
+      "My projects included redesigning filters, grids and sliders, implementing A/B tests and analyzing user feedback to further optimize the experience."
+    ],
+    "skillsLabel": "Key Skills",
+    "skills": ["Figma", "User Testing", "HTML, CSS & JavaScript"],
+    "links": [
+      {
+        "label": "WEBSITE",
+        "url": "https://tweakers.net/"
+      }
+    ],
+    "caseStudy": {
+      "role": "",
+      "team": "",
+      "timeframe": "",
+      "challenge": "",
+      "approach": [],
+      "outcome": "",
+      "reflections": "",
+      "gallery": []
+    }
+  },
+  {
+    "slug": "colors",
+    "title": "Colors",
+    "description": "Colors: a short animated film exploring Blender, from concept and modeling to rigging, texturing and rendering.",
+    "paragraphs": [
+      "During the Special 3D course, I explored the fundamentals of Blender while creating a short animated film.",
+      "I worked through the full production process, from concept development and modeling to animation, texturing and rendering."
+    ],
+    "skillsLabel": "Key Skills",
+    "skills": ["Rigging", "Modeling", "Animation"],
+    "links": [
+      {
+        "label": "WATCH SHORT",
+        "url": "https://youtu.be/r0NB1aSFYfI?si=9vSKLUB6JYUZsZAN"
+      }
+    ],
+    "caseStudy": {
+      "role": "",
+      "team": "",
+      "timeframe": "",
+      "challenge": "",
+      "approach": [],
+      "outcome": "",
+      "reflections": "",
+      "gallery": []
+    }
+  },
+  {
+    "slug": "webuildapps",
+    "title": "Webuildapps",
+    "description": "Full-stack development at Webuildapps: a Laravel application turning Jira time entries into clearer daily standup overviews.",
+    "paragraphs": [
+      "During my internship as a Full Stack Developer at Webuildapps, I worked on the Standup Project, a web application that gave employees a clear overview of their logged hours in Jira.",
+      "The application helped make daily standup meetings more efficient by showing hours per day, per person and per project in one place."
+    ],
+    "skillsLabel": "Key Skills",
+    "skills": ["PHP", "Laravel", "HTML, CSS & JavaScript"],
+    "links": [
+      {
+        "label": "WEBSITE",
+        "url": "https://webuildapps.com/"
+      }
+    ],
+    "caseStudy": {
+      "role": "",
+      "team": "",
+      "timeframe": "",
+      "challenge": "",
+      "approach": [],
+      "outcome": "",
+      "reflections": "",
+      "gallery": []
+    }
+  },
+  {
+    "slug": "intouch",
+    "title": "InTouch",
+    "description": "InTouch: a multimodal wristband concept using tactile notifications to support calmer communication at home.",
+    "paragraphs": [
+      "During Project Beyond, our team designed InTouch, a multimodal communication wristband aimed at improving communication at home.",
+      "The concept replaced shouting and missed messages with subtle tactile notifications, helping families communicate without relying on screens.",
+      "A smart wristband designed to turn a daily irritation into a calmer interaction."
+    ],
+    "skillsLabel": "Key Skills",
+    "skills": ["Prototyping", "User Testing", "Multimodal Design"],
+    "links": [
+      {
+        "label": "WATCH SHORT",
+        "url": "https://youtu.be/LVXdFMEu7Uk?si=jz5ECaT6iZVXwJsa"
+      }
+    ],
+    "caseStudy": {
+      "role": "",
+      "team": "",
+      "timeframe": "",
+      "challenge": "",
+      "approach": [],
+      "outcome": "",
+      "reflections": "",
+      "gallery": []
+    }
+  },
+  {
+    "slug": "canvasheroes",
+    "title": "CanvasHeroes",
+    "description": "Full-stack development at CanvasHeroes, with Symfony backend work and front-end contributions for client projects.",
+    "paragraphs": [
+      "During my internship as a Full Stack Developer at CanvasHeroes, I gained hands-on experience in building and maintaining web applications.",
+      "I primarily worked with Symfony on backend development, contributed to front-end tasks and supported projects for Alzheimer Nederland and Meewind."
+    ],
+    "skillsLabel": "Key Skills",
+    "skills": ["PHP", "Symfony", "HTML, CSS & JavaScript"],
+    "links": [
+      {
+        "label": "WEBSITE",
+        "url": "https://www.canvasheroes.com/en"
+      }
+    ],
+    "caseStudy": {
+      "role": "",
+      "team": "",
+      "timeframe": "",
+      "challenge": "",
+      "approach": [],
+      "outcome": "",
+      "reflections": "",
+      "gallery": []
+    }
+  },
+  {
+    "slug": "fdd",
+    "title": "FD&D",
+    "description": "FD&D in Dante Piekart's portfolio. Project details will be added soon.",
+    "paragraphs": ["Project details will be added soon."],
+    "skillsLabel": "Key Skills",
+    "skills": [],
+    "links": [],
+    "caseStudy": {
+      "role": "",
+      "team": "",
+      "timeframe": "",
+      "challenge": "",
+      "approach": [],
+      "outcome": "",
+      "reflections": "",
+      "gallery": []
+    }
+  }
+]

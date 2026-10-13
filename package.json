@@ -4,8 +4,13 @@
   "version": "1.0.0",
   "main": "app.js",
   "scripts": {
-    "vercel": "node app.js",
-    "dev": "nodemon app.js"
+    "start": "node app.js",
+    "dev": "node --watch app.js",
+    "lint": "eslint .",
+    "format": "prettier --write .",
+    "format:check": "prettier --check .",
+    "test": "node --test",
+    "check": "npm run lint && npm run format:check && npm test"
   },
   "repository": {
     "type": "git",
@@ -18,16 +23,20 @@
   ],
   "author": "Dante Piekart",
   "license": "UNLICENSED",
-  "homepage": "https://dantepiekart.com",
+  "homepage": "https://www.dantepiekart.nl",
   "description": "Portfolio of Dante Piekart",
   "dependencies": {
-    "@vercel/analytics": "^2.0.1",
-    "@vercel/speed-insights": "^2.0.0",
-    "ejs": "^3.1.10",
-    "express": "^4.22.2",
+    "ejs": "^7.0.1",
+    "express": "^5.3.0",
     "express-ejs-layouts": "^2.5.1"
   },
   "devDependencies": {
-    "nodemon": "^3.1.14"
+    "@eslint/js": "^10.0.1",
+    "eslint": "^10.12.0",
+    "globals": "^17.13.0",
+    "prettier": "^3.9.10"
+  },
+  "engines": {
+    "node": "24.x"
   }
 }
