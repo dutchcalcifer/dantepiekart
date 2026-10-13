@@ -24,9 +24,9 @@ npm run check
 npm audit
 ```
 
-`check` runs ESLint, Prettier and Node's built-in test runner. Tests exercise all page routes, links, local resources, redirects, search/social metadata, sitemap, error pages and optional portfolio sections. They start a temporary local HTTP server. The GitHub Actions workflow runs checks on pushes and pull requests.
+`check` runs ESLint and Prettier. The GitHub Actions workflow runs those checks and a dependency audit on pushes and pull requests.
 
-Use `npm run format` to format supported source files. EJS templates are excluded because Prettier does not support EJS natively; their rendering is covered by the tests.
+Use `npm run format` to format supported source files. EJS templates are excluded because Prettier does not support EJS natively.
 
 ## Content
 

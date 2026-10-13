@@ -14,6 +14,14 @@ if (toggle && dialog && close) {
 
   close.addEventListener("click", () => dialog.close());
 
+  // A history navigation can restore the page with its dialog still open.
+  window.addEventListener("pageshow", (event) => {
+    if (!event.persisted) return;
+    if (dialog.open) dialog.close();
+    document.body.classList.remove("menu-open");
+    toggle.setAttribute("aria-expanded", "false");
+  });
+
   // Keep Tab within the menu; native dialog handles Escape and the inert background.
   dialog.addEventListener("keydown", (event) => {
     if (event.key !== "Tab") return;

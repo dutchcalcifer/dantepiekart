@@ -1,6 +1,6 @@
 # Filling in portfolio projects
 
-Edit `src/content/projects.json`. Each entry creates its project page, portfolio link, metadata and sitemap entry. Existing descriptions, skills and links have been retained; `fdd` is ready for your content.
+Edit `src/content/projects.json`. Each entry creates its project page, portfolio link, metadata and sitemap entry. Existing descriptions, skills and links have been retained.
 
 To add a project, copy `docs/project-template.json` into the array. Use a unique lowercase slug with hyphens. Write an accurate summary in `description`; this appears in search results and social previews.
 
@@ -49,6 +49,6 @@ Example gallery entry:
 
 Place that image in `public/images/projects/your-project/`. Supply its real dimensions to reserve space before it loads. Use root-relative local paths beginning with `/`, or full HTTPS URLs. Text fields render as plain text; HTML is escaped.
 
-Run `npm run check` after editing. It checks content structure, local resources, page rendering, links and metadata. Reload your browser to see JSON/template changes during `npm run dev`; Node's watcher restarts imported JavaScript automatically.
+Run `npm run check` after editing to check JavaScript linting and formatting. Reload your browser to see JSON/template changes during `npm run dev`; Node's watcher restarts imported JavaScript automatically.
 
 The shared social image is `public/images/social-preview.png`. Its editable source is `public/images/social-preview.svg`. Site-wide URL and image settings live in `src/config/site.js`; main-page titles and descriptions live in `src/content/pages.js`.

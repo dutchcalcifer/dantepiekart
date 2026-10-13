@@ -1,7 +1,7 @@
 :root {
   --background-color: #000000;
   --text-color: #f9f9f9;
-  --secondary-color: #ff5c00;
+  --secondary-color: #d94b00;
   /* Inline the shared icon so it is ready with the text on the first paint. */
   --arrow-icon: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 27'%3E%3Cpath d='M31.9999 13.5L19.2941 26.2059L16.287 23.1988L23.8893 15.6176H0.235229V11.3824H23.8893L16.287 3.80118L19.2941 0.794117L31.9999 13.5Z'/%3E%3C/svg%3E");
 }

@@ -43,7 +43,23 @@ main .case-study-section p:first-of-type {
 
 .project-gallery {
   display: grid;
+  grid-template-columns: minmax(0, 1fr);
+  align-items: start;
   gap: 1.5rem;
+}
+
+.project-gallery figure {
+  min-width: 0;
+}
+
+@media (min-width: 48rem) {
+  .project-gallery {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+
+  .project-gallery > :only-child {
+    grid-column: 1 / -1;
+  }
 }
 
 .project-gallery img {

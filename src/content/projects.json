@@ -24,7 +24,22 @@
       "approach": [],
       "outcome": "",
       "reflections": "",
-      "gallery": []
+      "gallery": [
+        {
+          "src": "/images/cmd-navigator-compass.webp",
+          "alt": "CMD Navigator Compass screen with a route creator and an overview of courses by year.",
+          "width": 1419,
+          "height": 2796,
+          "caption": "Compass page: find your way through CMD."
+        },
+        {
+          "src": "/images/cmd-navigator-term.webp",
+          "alt": "CMD Navigator Dark Patterns topic screen with an introduction, examples and learning resources.",
+          "width": 1419,
+          "height": 2796,
+          "caption": "Dark patterns topic page."
+        }
+      ]
     }
   },
   {
@@ -214,25 +229,6 @@
         "url": "https://www.canvasheroes.com/en"
       }
     ],
-    "caseStudy": {
-      "role": "",
-      "team": "",
-      "timeframe": "",
-      "challenge": "",
-      "approach": [],
-      "outcome": "",
-      "reflections": "",
-      "gallery": []
-    }
-  },
-  {
-    "slug": "fdd",
-    "title": "FD&D",
-    "description": "FD&D in Dante Piekart's portfolio. Project details will be added soon.",
-    "paragraphs": ["Project details will be added soon."],
-    "skillsLabel": "Key Skills",
-    "skills": [],
-    "links": [],
     "caseStudy": {
       "role": "",
       "team": "",
