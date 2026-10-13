@@ -37,6 +37,10 @@ header {
   display: none;
 }
 
+.menu-close {
+  padding-inline-start: 0;
+}
+
 .menu-toggle::before,
 .menu-close::before,
 header nav a::before {
@@ -98,7 +102,7 @@ header nav a.active {
 
 .menu-header {
   display: flex;
-  justify-content: flex-end;
+  justify-content: flex-start;
 }
 
 header nav {
