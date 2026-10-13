@@ -21,8 +21,7 @@ export const pages = [
     path: "/portfolio",
     view: "pages/portfolio",
     title: "Portfolio | Dante Piekart",
-    description:
-      "Explore Dante Piekart's projects like the CMD Navigator.",
+    description: "Explore Dante Piekart's projects like the CMD Navigator.",
   },
   ...projects.map((project) => ({
     path: `/portfolio/${project.slug}`,
@@ -42,7 +41,6 @@ export const pages = [
     path: "/contact",
     view: "pages/contact",
     title: "Contact | Dante Piekart",
-    description:
-      "Get in touch with me.",
+    description: "Get in touch with me.",
   },
 ];

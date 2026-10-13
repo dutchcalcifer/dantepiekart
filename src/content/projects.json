@@ -173,12 +173,7 @@
       "The project gave me experience turning a growing set of requirements into a working application. Moving data processing into the back end also taught me how separating responsibilities can make code easier to maintain and help resolve bugs."
     ],
     "skillsLabel": "Key Skills",
-    "skills": [
-      "PHP",
-      "Laravel",
-      "API Integration",
-      "HTML, CSS & JavaScript"
-    ],
+    "skills": ["PHP", "Laravel", "API Integration", "HTML, CSS & JavaScript"],
     "links": [
       {
         "label": "WEBSITE",
@@ -231,11 +226,7 @@
       "I worked with Symfony and contributed to projects for Alzheimer Nederland and Meewind."
     ],
     "skillsLabel": "Key Skills",
-    "skills": [
-      "PHP",
-      "Symfony",
-      "HTML, CSS & JavaScript"
-    ],
+    "skills": ["PHP", "Symfony", "HTML, CSS & JavaScript"],
     "links": [
       {
         "label": "WEBSITE",
