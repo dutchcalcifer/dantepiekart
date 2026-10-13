@@ -5,11 +5,17 @@ const close = document.querySelector("#menu-close");
 if (toggle && dialog && close) {
   toggle.hidden = false;
 
-  toggle.addEventListener("click", () => {
+  toggle.addEventListener("click", (event) => {
     dialog.showModal();
     toggle.setAttribute("aria-expanded", "true");
     document.body.classList.add("menu-open");
-    dialog.querySelector("a").focus();
+    // Pointer users need focus inside the dialog, without highlighting a link.
+    // Keyboard and assistive activation keep a visible, actionable focus target.
+    const initialFocus =
+      event.detail === 0
+        ? dialog.querySelector("a")
+        : dialog.querySelector("#menu-title");
+    initialFocus.focus({ preventScroll: true });
   });
 
   close.addEventListener("click", () => dialog.close());
