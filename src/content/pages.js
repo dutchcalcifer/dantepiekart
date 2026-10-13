@@ -8,7 +8,7 @@ export const pages = [
     view: "index",
     title: "Dante Piekart | Product Designer & Front-end Developer",
     description:
-      "Dante Piekart's portfolio: product design, UX research, interaction design and front-end development. Explore selected projects and experience.",
+      "Dante Piekart's portfolio: product designer and front-end developer combining design and development to create user-friendly digital products.",
   },
   {
     path: "/about",
@@ -22,7 +22,7 @@ export const pages = [
     view: "pages/portfolio",
     title: "Portfolio | Dante Piekart",
     description:
-      "Explore Dante Piekart's work in UX, product design and development, including CMD Navigator, AutoWeek, Tweakers.net and InTouch.",
+      "Explore Dante Piekart's projects like the CMD Navigator.",
   },
   ...projects.map((project) => ({
     path: `/portfolio/${project.slug}`,
@@ -36,13 +36,13 @@ export const pages = [
     view: "pages/education",
     title: "Education | Dante Piekart",
     description:
-      "Dante Piekart's education at Amsterdam University of Applied Sciences, the University of Michigan and ROC Horizon College.",
+      "Dante Piekart's education at the Amsterdam University of Applied Sciences, the University of Michigan and ROC Horizon College Hoorn.",
   },
   {
     path: "/contact",
     view: "pages/contact",
     title: "Contact | Dante Piekart",
     description:
-      "Get in touch with Dante Piekart about product design, front-end development and collaboration. Find email and social links.",
+      "Get in touch with me.",
   },
 ];

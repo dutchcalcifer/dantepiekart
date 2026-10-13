@@ -32,7 +32,7 @@ Use `npm run format` to format supported source files. EJS templates are exclude
 
 - Edit projects in `src/content/projects.json`.
 - Copy `docs/project-template.json` to create another project.
-- Follow [the portfolio content guide](docs/portfolio-content.md) to add role, research, process, outcomes and screenshots. Empty case-study fields stay hidden.
+- Follow [the portfolio content guide](docs/portfolio-content.md) to add project details and screenshots. Empty optional fields stay hidden.
 - Edit main-page titles and descriptions in `src/content/pages.js`.
 - Site URL and social-image settings live in `src/config/site.js`.
 

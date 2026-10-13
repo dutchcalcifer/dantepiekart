@@ -12,13 +12,6 @@ main .project-heading {
   margin-bottom: 0.5rem;
 }
 
-.project h3 {
-  font:
-    500 clamp(1.2rem, 2.5vw, 1.75rem) "saira",
-    sans-serif;
-  margin-top: 1rem;
-}
-
 .project-facts {
   display: flex;
   flex-wrap: wrap;
@@ -33,12 +26,8 @@ main .project-heading {
   font-weight: 600;
 }
 
-.case-study-section {
+.project-gallery-section {
   margin-top: 1rem;
-}
-
-main .case-study-section p:first-of-type {
-  padding-top: 0;
 }
 
 .project-gallery {

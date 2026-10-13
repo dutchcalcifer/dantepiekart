@@ -4,35 +4,22 @@ Edit `src/content/projects.json`. Each entry creates its project page, portfolio
 
 To add a project, copy `docs/project-template.json` into the array. Use a unique lowercase slug with hyphens. Write an accurate summary in `description`; this appears in search results and social previews.
 
-The `caseStudy` fields are optional. Empty fields do not create headings, placeholder text or image boxes on the website.
+Use `paragraphs` for your project story. Skills, links and the entire `caseStudy` object are optional. Empty fields do not create headings, placeholder text or image boxes on the website.
 
-| Field                   | What to add                                                                   |
-| ----------------------- | ----------------------------------------------------------------------------- |
-| `paragraphs`            | Short introductory paragraphs, as an array of strings                         |
-| `skills`                | Skills or tools used, as an array of strings                                  |
-| `links`                 | Objects with `label` and `url`, for your website, prototype or PDF            |
-| `caseStudy.role`        | Your responsibilities and contribution                                        |
-| `caseStudy.team`        | Who you worked with                                                           |
-| `caseStudy.timeframe`   | Dates or project duration                                                     |
-| `caseStudy.challenge`   | The problem, audience and constraints                                         |
-| `caseStudy.approach`    | Objects with `title` and `text` describing research, iterations and decisions |
-| `caseStudy.outcome`     | What changed, with evidence or metrics when available                         |
-| `caseStudy.reflections` | What you learned and what you would improve                                   |
-| `caseStudy.gallery`     | Image objects with `src`, `alt`, `width`, `height` and optional `caption`     |
+| Field                 | What to add                                                               |
+| --------------------- | ------------------------------------------------------------------------- |
+| `paragraphs`          | Short introductory paragraphs, as an array of strings                     |
+| `skills`              | Skills or tools used, as an array of strings                              |
+| `links`               | Objects with `label` and `url`, for your website, prototype or PDF        |
+| `caseStudy.role`      | Your responsibilities and contribution                                    |
+| `caseStudy.team`      | Who you worked with                                                       |
+| `caseStudy.timeframe` | Dates or project duration                                                 |
+| `caseStudy.gallery`   | Image objects with `src`, `alt`, `width`, `height` and optional `caption` |
 
 Example link:
 
 ```json
 { "label": "VIEW PROTOTYPE", "url": "https://example.com/prototype" }
-```
-
-Example approach step:
-
-```json
-{
-  "title": "Research",
-  "text": "Describe what you investigated and how the findings informed your design."
-}
 ```
 
 Example gallery entry:

@@ -1,21 +1,45 @@
+<% const details = project.caseStudy ?? {};
+const facts = [ ['My role', details.role], ['Team', details.team], ['Timeframe', details.timeframe] ].filter(([, value]) => value);
+const skills = project.skills ?? [];
+const gallery = details.gallery ?? []; %>
 <article class="project version-1 version-5">
   <h1><%= project.title %></h1>
-  <% for (const paragraph of project.paragraphs) { %>
+  <% for (const paragraph of project.paragraphs ?? []) { %>
     <p><%= paragraph %></p>
   <% } %>
 
-  <% if (project.skills.length) { %>
-    <h2 class="project-heading"><%= project.skillsLabel %></h2>
+  <% if (skills.length) { %>
+    <h2 class="project-heading"><%= project.skillsLabel || 'Key Skills' %></h2>
     <ul>
-      <% for (const skill of project.skills) { %>
+      <% for (const skill of skills) { %>
         <li><%= skill %></li>
       <% } %>
     </ul>
   <% } %>
 
-  <%- include('../partials/case-study', { caseStudy: project.caseStudy }) %>
+  <% if (facts.length) { %>
+    <dl class="project-facts">
+      <% for (const [label, value] of facts) { %>
+        <div><dt><%= label %></dt><dd><%= value %></dd></div>
+      <% } %>
+    </dl>
+  <% } %>
 
-  <% for (const link of project.links) { %>
+  <% if (gallery.length) { %>
+    <section class="project-gallery-section">
+      <h2 class="project-heading">Project gallery</h2>
+      <div class="project-gallery">
+        <% for (const image of gallery) { %>
+          <figure>
+            <img src="<%= image.src %>" alt="<%= image.alt %>" width="<%= image.width %>" height="<%= image.height %>" loading="lazy" decoding="async" />
+            <% if (image.caption) { %><figcaption><%= image.caption %></figcaption><% } %>
+          </figure>
+        <% } %>
+      </div>
+    </section>
+  <% } %>
+
+  <% for (const link of project.links ?? []) { %>
     <a href="<%= link.url %>" target="_blank" rel="noopener noreferrer" class="margin"><%= link.label %></a>
   <% } %>
   <a href="/portfolio" class="margin back">BACK</a>
