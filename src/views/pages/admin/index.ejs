@@ -1,0 +1,18 @@
+<section class="admin-page admin-overview version-1" aria-labelledby="admin-title">
+  <h1 id="admin-title">Pages</h1>
+  <% if (error) { %><p class="form-error" role="alert"><%= error %></p><% } %>
+  <% if (loadFailed) { %>
+    <a href="/admin" class="margin">TRY AGAIN</a>
+  <% } else { %>
+    <%- include('../../partials/admin-page-list', { pages: projectPages }) %>
+    <p id="page-actions-note" class="admin-help">Edit, delete and create are not available yet.</p>
+    <button type="button" class="action-button margin" disabled aria-describedby="page-actions-note">CREATE PAGE</button>
+  <% } %>
+  <div class="admin-footer">
+    <a href="/" class="back">BACK TO HOME</a>
+    <form action="/admin/logout" method="post">
+      <input type="hidden" name="csrf" value="<%= csrf %>" />
+      <button type="submit" class="action-button">LOG OUT</button>
+    </form>
+  </div>
+</section>

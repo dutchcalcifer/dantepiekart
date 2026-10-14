@@ -1,8 +1,19 @@
-<section class="version-3">
+<section class="version-3 portfolio">
   <h1>Portfolio</h1>
-  <ul>
-    <% for (const project of projects) { %>
-      <li><a href="/portfolio/<%= project.slug %>"><%= project.title %></a></li>
+  <div class="portfolio-groups">
+    <% for (const group of projectGroups) { %>
+      <section class="portfolio-group">
+        <h2 class="project-heading"><%= group.title %></h2>
+        <% if (group.projects.length) { %>
+          <ul>
+            <% for (const project of group.projects) { %>
+              <li><a href="/portfolio/<%= project.slug %>"><%= project.title %></a></li>
+            <% } %>
+          </ul>
+        <% } else { %>
+          <p>No projects yet.</p>
+        <% } %>
+      </section>
     <% } %>
-  </ul>
+  </div>
 </section>

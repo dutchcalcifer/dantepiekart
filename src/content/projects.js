@@ -62,53 +62,101 @@ function getConnection() {
   return { endpoint: new URL("/rest/v1/projects", endpoint), key };
 }
 
-// Keep the existing EJS templates usable with the database's column names.
-function toProject(row) {
+function sortProjects(projects) {
+  return projects.toSorted(
+    (a, b) =>
+      (b.projectDate || "").localeCompare(a.projectDate || "") ||
+      a.title.localeCompare(b.title),
+  );
+}
+
+// The templates get the same simple content shape with either database schema.
+function toProject(row, endpoint) {
+  const legacy = Array.isArray(row.skills);
+  const defaults = localProjects.find((project) => project.slug === row.slug);
+  const storageUrl = new URL("/storage/v1/object/public/", endpoint);
   return {
+    id: row.id,
     slug: row.slug,
     title: row.title,
     description: row.description,
+    type: legacy ? defaults?.type || "personal" : row.type,
+    projectDate: legacy ? defaults?.projectDate || null : row.project_date,
     paragraphs: row.body
       .split(/\r?\n\s*\r?\n/)
       .map((text) => text.trim())
       .filter(Boolean),
-    skillsLabel: row.skills_label,
-    skills: row.skills,
+    skillsLabel: legacy
+      ? row.skills_label.trim().toUpperCase()
+      : row.skill_label?.label || "",
+    skills: legacy
+      ? row.skills
+      : row.project_skills.map(({ skill }) => skill.skill),
     links: row.project_links.map(({ label, url }) => ({ label, url })),
     caseStudy: {
       role: row.role,
       team: row.team,
       timeframe: row.timeframe,
-      gallery: row.project_images.map(
-        ({ src, alt, width, height, caption }) => ({
-          src,
-          alt,
-          width,
-          height,
-          caption,
-        }),
-      ),
+      gallery: row.project_images.map((placement) => {
+        const image = legacy ? placement : placement.image;
+        return {
+          src: legacy
+            ? image.src
+            : `${storageUrl}${encodeURIComponent(image.bucket)}/${image.storage_path
+                .split("/")
+                .map(encodeURIComponent)
+                .join("/")}`,
+          alt: placement.alt,
+          width: image.width,
+          height: image.height,
+          caption: placement.caption,
+        };
+      }),
     },
   };
 }
 
-// Fetch each project with its related links/images, in their display order.
-async function fetchProjects({ endpoint, key }) {
+// The legacy request keeps a deployment usable before the SQL migration is run.
+function projectQuery(endpoint, legacy = false) {
+  endpoint = new URL(endpoint);
   endpoint.searchParams.set(
     "select",
-    "slug,title,description,body,skills_label,skills,role,team,timeframe,project_links(label,url),project_images(src,alt,width,height,caption)",
+    legacy
+      ? "id,slug,title,description,body,skills_label,skills,role,team,timeframe,project_links(label,url),project_images(src,alt,width,height,caption)"
+      : "id,slug,title,description,body,role,team,timeframe,type,project_date,skill_label:skill_labels(label),project_skills(sort_order,skill:skills(skill)),project_links(label,url),project_images(alt,caption,image:images(bucket,storage_path,width,height))",
   );
-  endpoint.searchParams.set("order", "sort_order.asc,slug.asc");
+  endpoint.searchParams.set(
+    "order",
+    legacy ? "sort_order.asc,slug.asc" : "project_date.desc.nullslast,slug.asc",
+  );
   endpoint.searchParams.set("project_links.order", "sort_order.asc,id.asc");
   endpoint.searchParams.set("project_images.order", "sort_order.asc,id.asc");
+  if (!legacy) {
+    endpoint.searchParams.set(
+      "project_skills.order",
+      "sort_order.asc,skill_id.asc",
+    );
+  }
+  return endpoint;
+}
 
+// Fetch reusable skills/assets through their project relationships.
+async function fetchProjects({ endpoint, key }) {
   try {
-    const response = await fetch(endpoint, {
-      headers: { apikey: key, Accept: "application/json" },
-      signal: AbortSignal.timeout(8_000),
-      redirect: "error",
-      cache: "no-store",
-    });
+    const request = (query) =>
+      fetch(query, {
+        headers: { apikey: key, Accept: "application/json" },
+        signal: AbortSignal.timeout(8_000),
+        redirect: "error",
+        cache: "no-store",
+      });
+    let response = await request(projectQuery(endpoint));
+    if (!response.ok && [400, 404].includes(response.status)) {
+      const failure = await response.json();
+      if (["PGRST200", "PGRST204", "42703"].includes(failure.code)) {
+        response = await request(projectQuery(endpoint, true));
+      }
+    }
     if (!response.ok) {
       throw connectionError(
         `Supabase returned HTTP ${response.status}. Check the project URL, publishable key, Data API and table read permissions.`,
@@ -120,7 +168,7 @@ async function fetchProjects({ endpoint, key }) {
         "Supabase returned an unexpected project response.",
       );
     }
-    return rows.map(toProject);
+    return sortProjects(rows.map((row) => toProject(row, endpoint)));
   } catch (error) {
     if (error.status === 503) throw error;
     // Do not log request headers or credentials in connection failures.
@@ -133,7 +181,7 @@ async function fetchProjects({ endpoint, key }) {
 // Reuse content for 60 seconds and share one fetch between simultaneous visitors.
 export async function getProjects() {
   const connection = getConnection();
-  if (!connection) return localProjects;
+  if (!connection) return sortProjects(localProjects);
   if (cachedProjects && Date.now() < cacheExpiresAt) return cachedProjects;
   if (!pendingRequest) {
     pendingRequest = fetchProjects(connection)

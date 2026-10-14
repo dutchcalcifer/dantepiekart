@@ -1,0 +1,58 @@
+.admin-page {
+  width: min(100%, 32rem);
+}
+
+.site-form {
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+  margin-top: 1.5rem;
+}
+
+.form-field {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+  font:
+    300 1.5rem "saira",
+    sans-serif;
+}
+
+.form-field input {
+  width: 100%;
+  min-height: 44px;
+  padding: 0.5rem 0.75rem;
+  border: 1px solid var(--text-color);
+  border-radius: 0;
+  background: var(--background-color);
+  color: var(--text-color);
+  font: inherit;
+}
+
+.form-field input[aria-invalid="true"] {
+  border-color: var(--secondary-color);
+}
+
+.admin-page .form-error {
+  margin-top: 1.5rem;
+  padding: 0.75rem 1rem;
+  border-inline-start: 3px solid var(--secondary-color);
+  background: var(--background-color);
+  color: var(--text-color);
+}
+
+.action-button {
+  border: 0;
+  padding: 0;
+  min-height: 44px;
+  background: transparent;
+  cursor: pointer;
+  text-align: left;
+  align-items: center;
+}
+
+.action-button:disabled,
+.form-field input:disabled {
+  opacity: 0.5;
+  cursor: not-allowed;
+}

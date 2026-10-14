@@ -1,0 +1,57 @@
+.admin-overview {
+  width: min(100%, 56rem);
+}
+
+.admin-page-list {
+  margin-top: 1.5rem;
+}
+
+.admin-page-list .admin-page-row {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) auto;
+  gap: 1rem;
+  max-width: none;
+  padding: 0.75rem 0;
+  border-bottom: 1px solid rgb(249 249 249 / 25%);
+}
+
+.admin-page-name {
+  min-width: 0;
+  overflow-wrap: anywhere;
+}
+
+.admin-page-actions {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+.admin-page-actions .admin-icon-button {
+  justify-content: center;
+  width: 44px;
+  height: 44px;
+}
+
+.admin-page-actions .admin-icon-button::before {
+  margin-right: 0;
+  width: 1.75rem;
+  mask-image: url("/vectors/edit.svg");
+}
+
+.admin-page-actions .admin-delete-button::before {
+  mask-image: url("/vectors/delete.svg");
+}
+
+.admin-overview .admin-help {
+  padding-top: 1rem;
+  font-size: 1rem;
+}
+
+.admin-footer {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: space-between;
+  gap: 1rem 2rem;
+  margin-top: 2rem;
+}

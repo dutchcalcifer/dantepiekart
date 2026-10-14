@@ -3,12 +3,14 @@
     "slug": "cmdnavigator",
     "title": "CMD Navigator",
     "description": "A mobile-first guide connecting study blocks, competencies, and resources for first-year CMD students.",
+    "type": "school",
+    "projectDate": "2026-07-01",
     "paragraphs": [
       "For my graduation project, I designed CMD Navigator, a mobile-first guide for first-year CMD students at the Amsterdam University of Applied Sciences. Information was spread across learning platforms, Teams, slides, and conversations, making it difficult to understand how the program fit together.",
       "I interviewed students, teachers, and coordinators, reviewed existing resources, and explored different concepts. I developed a Figma prototype with connected study-block pages, a visual map of the program, search, and saved content. Usability tests helped me clarify the navigation, simplify competency explanations, and make pages easier to scan.",
       "Students understood the main flows and valued the study-block pages, Compass, example work, and related terms. The final deliverables were an interactive prototype and design rationale, with recommendations for managing the content. The project helped me see how much value a clear structure can add to information that already exists."
     ],
-    "skillsLabel": "Key Skills",
+    "skillsLabel": "KEY SKILLS",
     "skills": [
       "UX Research",
       "Information Architecture",
@@ -28,14 +30,14 @@
       "timeframe": "February – July 2026",
       "gallery": [
         {
-          "src": "/images/cmd-navigator-compass.webp",
+          "src": "https://jxwsiatpapxbwoqedytp.supabase.co/storage/v1/object/public/portfolio-images/cmd-navigator-compass.webp",
           "alt": "CMD Navigator Compass screen with a route creator and an overview of courses by year.",
           "width": 1419,
           "height": 2796,
           "caption": "Compass page: find your way through CMD."
         },
         {
-          "src": "/images/cmd-navigator-term.webp",
+          "src": "https://jxwsiatpapxbwoqedytp.supabase.co/storage/v1/object/public/portfolio-images/cmd-navigator-term.webp",
           "alt": "CMD Navigator Dark Patterns topic screen with an introduction, examples and learning resources.",
           "width": 1419,
           "height": 2796,
@@ -48,12 +50,14 @@
     "slug": "autoweek",
     "title": "AutoWeek",
     "description": "Designing and building renewed vehicle listings and filters as part of AutoWeek’s platform refresh.",
+    "type": "internship",
+    "projectDate": "2025-12-01",
     "paragraphs": [
       "During my internship at AutoWeek, I combined UX/UI design and front-end development in the product team. My main project was the vehicle listings page, including its filters and result items, as part of a wider platform refresh.",
       "I reviewed other vehicle platforms and worked with a freelance designer on the layouts and renewed design system in Figma. I then implemented the page and filters, including separate make and model selection, range filters, and keyboard support. The updated filter logic went live during my internship, followed by testing and bug fixes.",
       "I also supported the upgrade from Vue 2 to Vue 3 and helped colleagues with reusable components and consistent CSS. Working across design and development taught me how feedback and implementation details shape a design, and how shared components help a team carry it through consistently."
     ],
-    "skillsLabel": "Key Skills",
+    "skillsLabel": "KEY SKILLS",
     "skills": [
       "UX/UI Design",
       "Design Systems",
@@ -78,12 +82,14 @@
     "slug": "exchange",
     "title": "Exchange Program",
     "description": "An exchange semester exploring development, automotive UX, information ethics, and video production at the University of Michigan.",
+    "type": "school",
+    "projectDate": "2024-12-01",
     "paragraphs": [
       "In the fall of 2024, I completed an exchange semester at the University of Michigan School of Information. I built data-driven web applications with Django and Python and studied automotive UX, information ethics, project management, communication, and writing.",
       "For ELI 131, Interactive Communication, I worked on an introductory video guide for international students visiting or studying at the University of Michigan and in Ann Arbor. I contributed as a writer, director, editor, and actor. The linked video is the final course project.",
       "Studying in the United States gave me new perspectives and became an important influence on the rest of my CMD studies. The semester also gave me room to combine technical coursework with creative projects."
     ],
-    "skillsLabel": "Courses Taken",
+    "skillsLabel": "COURSES TAKEN",
     "skills": [
       "Building Data-Driven Web Applications",
       "Introduction to Information Ethics",
@@ -109,12 +115,14 @@
     "slug": "tweakers",
     "title": "Tweakers.net",
     "description": "Designing, programming, and evaluating experiments for the Tweakers Pricewatch product comparison tool.",
+    "type": "internship",
+    "projectDate": "2024-04-01",
     "paragraphs": [
       "During my internship in the Tweakers product/UX team, I worked on Pricewatch, its product and price comparison tool. The team tested individual changes before committing to a larger redesign, so much of my work involved programming and evaluating live experiments.",
       "I implemented an existing price-drop filter design with JavaScript and CSS, added interaction tracking, and evaluated the results in SiteSpect. That experiment recorded a 68% increase in filter interactions among unique users. I also designed Figma variants for product grids and range sliders, and helped revise the grid experiment after negative feedback and test results.",
       "I observed two moderated usability sessions organized by Valsplat at Happy Labs. Combining these observations with the A/B tests taught me to look closely at how people actually use a product and to check design assumptions against their feedback and behavior."
     ],
-    "skillsLabel": "Key Skills",
+    "skillsLabel": "KEY SKILLS",
     "skills": [
       "UX/UI Design",
       "Figma",
@@ -139,11 +147,13 @@
     "slug": "colors",
     "title": "Colors",
     "description": "A short animated film exploring Blender through experimentation and creativity.",
+    "type": "school",
+    "projectDate": "2024-06-01",
     "paragraphs": [
       "For a second-year CMD elective, I chose 3D and created Colors, a short animated film, working individually. I explored Blender through hands-on experimentation with modeling, rigging, animation, texturing, and rendering.",
       "This was an introductory project where I learned by trying things out. I include it in my portfolio because it shows a different side of my work: creativity, curiosity, and a willingness to explore an unfamiliar tool."
     ],
-    "skillsLabel": "Key Skills",
+    "skillsLabel": "KEY SKILLS",
     "skills": [
       "Blender Basics",
       "3D Modeling",
@@ -167,12 +177,14 @@
     "slug": "webuildapps",
     "title": "Webuildapps",
     "description": "A Laravel dashboard bringing Jira time registrations together for daily standups at Webuildapps, now Zalt.",
+    "type": "internship",
+    "projectDate": "2022-05-01",
     "paragraphs": [
       "During my MBO graduation internship at Webuildapps, now Zalt, I independently developed the Standup Project in Laravel. It brought Jira tickets and logged hours together by day, person, and project, giving the team an overview for standups and time-registration checks.",
       "I implemented the company designer’s interface and built the data integration, login, password reset, and user and administrator features. Feedback and testing with colleagues helped me fix inconsistent data and improve loading performance.",
       "The project gave me experience turning a growing set of requirements into a working application. Moving data processing into the back end also taught me how separating responsibilities can make code easier to maintain and help resolve bugs."
     ],
-    "skillsLabel": "Key Skills",
+    "skillsLabel": "KEY SKILLS",
     "skills": ["PHP", "Laravel", "API Integration", "HTML, CSS & JavaScript"],
     "links": [
       {
@@ -191,12 +203,14 @@
     "slug": "intouch",
     "title": "InTouch",
     "description": "A communication wristband prototype combining lights, sound, and vibrations for use at home.",
+    "type": "school",
+    "projectDate": "2024-02-01",
     "paragraphs": [
       "For Project Beyond the Screen, our team of four developed InTouch over ten weeks. We explored how people in different rooms at home could get each other’s attention without shouting or relying on a phone. Interviews and concept exploration led to a wristband using lights, sound, and vibrations.",
       "My main contribution was technical: I worked on the 3D models, built and programmed the Arduino-based physical prototype, and helped with research, testing, and documentation. I also directed and edited the product video and recorded its voice-over.",
       "We tested with five fellow students. Sound and vibration attracted attention, but repeated notifications could become distracting, which informed a focus-mode option in the final concept. We delivered a working prototype, 3D mockups, a rationale, and a product video. For me, the project was an early preparation for graduation, bringing research, design, prototyping, and testing together."
     ],
-    "skillsLabel": "Key Skills",
+    "skillsLabel": "KEY SKILLS",
     "skills": [
       "Physical Prototyping",
       "Arduino Programming",
@@ -221,11 +235,13 @@
     "slug": "canvasheroes",
     "title": "CanvasHeroes",
     "description": "Front-end and back-end contributions to client projects during an MBO internship at CanvasHeroes.",
+    "type": "internship",
+    "projectDate": "2021-02-01",
     "paragraphs": [
       "During my MBO internship at CanvasHeroes, I helped with front-end and back-end development across several client projects.",
       "I worked with Symfony and contributed to projects for Alzheimer Nederland and Meewind."
     ],
-    "skillsLabel": "Key Skills",
+    "skillsLabel": "KEY SKILLS",
     "skills": ["PHP", "Symfony", "HTML, CSS & JavaScript"],
     "links": [
       {

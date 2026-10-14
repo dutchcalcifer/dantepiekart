@@ -36,7 +36,9 @@ router.get("/sitemap.xml", async (req, res) => {
 router.get("/robots.txt", (req, res) => {
   res
     .type("text/plain")
-    .send(`User-agent: *\nAllow: /\n\nSitemap: ${site.url}/sitemap.xml\n`);
+    .send(
+      `User-agent: *\nAllow: /\nDisallow: /admin\n\nSitemap: ${site.url}/sitemap.xml\n`,
+    );
 });
 
 for (const page of pages) {
@@ -48,6 +50,20 @@ for (const page of pages) {
       description: page.description,
       canonicalUrl: `${site.url}${page.path}`,
       projects,
+      projectGroups: [
+        {
+          title: "Projects",
+          projects: projects.filter((project) =>
+            ["school", "personal"].includes(project.type),
+          ),
+        },
+        {
+          title: "Internships & work",
+          projects: projects.filter((project) =>
+            ["internship", "work"].includes(project.type),
+          ),
+        },
+      ],
     });
   });
 }

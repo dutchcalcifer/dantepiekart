@@ -1,0 +1,19 @@
+<% if (pages.length) { %>
+  <ul class="admin-page-list" aria-label="Project pages">
+    <% for (const page of pages) { %>
+      <li class="admin-page-row">
+        <a class="admin-page-name" href="<%= page.url %>" target="_blank" rel="noopener noreferrer"><%= page.title %></a>
+        <div class="admin-page-actions">
+          <button type="button" class="action-button admin-icon-button" disabled aria-label="Edit <%= page.title %>" aria-describedby="page-actions-note" title="Edit <%= page.title %>">
+            <span class="visually-hidden">Edit</span>
+          </button>
+          <button type="button" class="action-button admin-icon-button admin-delete-button" disabled aria-label="Delete <%= page.title %>" aria-describedby="page-actions-note" title="Delete <%= page.title %>">
+            <span class="visually-hidden">Delete</span>
+          </button>
+        </div>
+      </li>
+    <% } %>
+  </ul>
+<% } else { %>
+  <p>No project pages yet.</p>
+<% } %>

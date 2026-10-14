@@ -1,0 +1,18 @@
+<section class="admin-page version-1" aria-labelledby="login-title">
+  <h1 id="login-title">Admin login</h1>
+  <% if (notice) { %><p role="status"><%= notice %></p><% } %>
+  <% if (error) { %><p id="login-error" class="form-error" role="alert"><%= error %></p><% } %>
+  <form class="site-form" action="/admin/login" method="post">
+    <input type="hidden" name="csrf" value="<%= csrf %>" />
+    <div class="form-field">
+      <label for="username">Username</label>
+      <input id="username" name="username" type="text" value="<%= username %>" autocomplete="username" autocapitalize="none" spellcheck="false" maxlength="100" required <% if (!configured) { %>disabled<% } %> <% if (error && configured) { %>aria-describedby="login-error" aria-invalid="true"<% } %> />
+    </div>
+    <div class="form-field">
+      <label for="password">Password</label>
+      <input id="password" name="password" type="password" autocomplete="current-password" maxlength="256" required <% if (!configured) { %>disabled<% } %> <% if (error && configured) { %>aria-describedby="login-error" aria-invalid="true"<% } %> />
+    </div>
+    <button type="submit" class="action-button" <% if (!configured) { %>disabled<% } %>>LOG IN</button>
+  </form>
+  <a href="/" class="margin back">BACK TO HOME</a>
+</section>

@@ -2,6 +2,21 @@
   width: min(100%, 70rem);
 }
 
+.portfolio-groups {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: clamp(2rem, 2.5vw, 2.5rem);
+}
+
+.portfolio-group {
+  min-width: 0;
+}
+
+main .portfolio-group ul {
+  grid-template-columns: 1fr;
+  padding-top: 0.5rem;
+}
+
 main .project-heading {
   font:
     500 clamp(1.4rem, 3vw, 2.125rem) "saira",
@@ -66,6 +81,11 @@ main .project-heading {
 }
 
 @media (max-width: 35rem) {
+  .portfolio-groups {
+    grid-template-columns: 1fr;
+    gap: 1rem;
+  }
+
   main .version-3 ul {
     grid-template-columns: 1fr;
   }

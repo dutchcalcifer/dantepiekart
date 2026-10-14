@@ -4,6 +4,8 @@ import { fileURLToPath } from "node:url";
 import projectRoutes from "./src/routes/routes.js";
 import expressEjsLayouts from "express-ejs-layouts";
 import { site } from "./src/config/site.js";
+import { adminSession } from "./src/auth/admin.js";
+import adminRoutes from "./src/routes/admin.js";
 
 const __dirname = path.dirname(fileURLToPath(import.meta.url));
 const app = express();
@@ -21,6 +23,8 @@ app.use((req, res, next) => {
   res.locals.currentYear = new Date().getFullYear();
   next();
 });
+app.use(adminSession);
+app.use("/admin", adminRoutes);
 app.use("/", projectRoutes);
 
 app.use((req, res) => {

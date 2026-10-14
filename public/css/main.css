@@ -44,7 +44,8 @@ main {
     line-height: 125%;
   }
 
-  a {
+  a,
+  .action-button {
     text-decoration: none;
     font-family: "saira", sans-serif;
     color: var(--text-color);
@@ -70,7 +71,7 @@ main {
       margin-right: 0.5rem;
     }
 
-    &:hover {
+    &:hover:not(:disabled) {
       color: var(--secondary-color);
 
       &::before {
@@ -88,7 +89,7 @@ main {
     p {
       padding-bottom: clamp(1rem, 2.5vw, 2rem);
 
-      &:last-of-type {
+      &:where(:last-of-type) {
         padding-bottom: 0;
       }
     }
