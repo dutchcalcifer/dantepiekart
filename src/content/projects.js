@@ -70,93 +70,67 @@ function sortProjects(projects) {
   );
 }
 
-// The templates get the same simple content shape with either database schema.
+// Convert the database relationships into the simple content used by EJS.
 function toProject(row, endpoint) {
-  const legacy = Array.isArray(row.skills);
-  const defaults = localProjects.find((project) => project.slug === row.slug);
   const storageUrl = new URL("/storage/v1/object/public/", endpoint);
   return {
     id: row.id,
     slug: row.slug,
     title: row.title,
     description: row.description,
-    type: legacy ? defaults?.type || "personal" : row.type,
-    projectDate: legacy ? defaults?.projectDate || null : row.project_date,
+    type: row.type,
+    projectDate: row.project_date,
     paragraphs: row.body
       .split(/\r?\n\s*\r?\n/)
       .map((text) => text.trim())
       .filter(Boolean),
-    skillsLabel: legacy
-      ? row.skills_label.trim().toUpperCase()
-      : row.skill_label?.label || "",
-    skills: legacy
-      ? row.skills
-      : row.project_skills.map(({ skill }) => skill.skill),
+    skillsLabel: row.skill_label?.label || "",
+    skills: row.project_skills.map(({ skill }) => skill.skill),
     links: row.project_links.map(({ label, url }) => ({ label, url })),
     caseStudy: {
       role: row.role,
       team: row.team,
       timeframe: row.timeframe,
-      gallery: row.project_images.map((placement) => {
-        const image = legacy ? placement : placement.image;
-        return {
-          src: legacy
-            ? image.src
-            : `${storageUrl}${encodeURIComponent(image.bucket)}/${image.storage_path
-                .split("/")
-                .map(encodeURIComponent)
-                .join("/")}`,
-          alt: placement.alt,
-          width: image.width,
-          height: image.height,
-          caption: placement.caption,
-        };
-      }),
+      gallery: row.project_images.map(({ image, alt, caption }) => ({
+        src: `${storageUrl}${encodeURIComponent(image.bucket)}/${image.storage_path
+          .split("/")
+          .map(encodeURIComponent)
+          .join("/")}`,
+        alt,
+        width: image.width,
+        height: image.height,
+        caption,
+      })),
     },
   };
 }
 
-// The legacy request keeps a deployment usable before the SQL migration is run.
-function projectQuery(endpoint, legacy = false) {
+// Fetch related skills, links and image assets in their display order.
+function projectQuery(endpoint) {
   endpoint = new URL(endpoint);
   endpoint.searchParams.set(
     "select",
-    legacy
-      ? "id,slug,title,description,body,skills_label,skills,role,team,timeframe,project_links(label,url),project_images(src,alt,width,height,caption)"
-      : "id,slug,title,description,body,role,team,timeframe,type,project_date,skill_label:skill_labels(label),project_skills(sort_order,skill:skills(skill)),project_links(label,url),project_images(alt,caption,image:images(bucket,storage_path,width,height))",
+    "id,slug,title,description,body,role,team,timeframe,type,project_date,skill_label:skill_labels(label),project_skills(sort_order,skill:skills(skill)),project_links(label,url),project_images(alt,caption,image:images(bucket,storage_path,width,height))",
   );
-  endpoint.searchParams.set(
-    "order",
-    legacy ? "sort_order.asc,slug.asc" : "project_date.desc.nullslast,slug.asc",
-  );
+  endpoint.searchParams.set("order", "project_date.desc.nullslast,slug.asc");
   endpoint.searchParams.set("project_links.order", "sort_order.asc,id.asc");
   endpoint.searchParams.set("project_images.order", "sort_order.asc,id.asc");
-  if (!legacy) {
-    endpoint.searchParams.set(
-      "project_skills.order",
-      "sort_order.asc,skill_id.asc",
-    );
-  }
+  endpoint.searchParams.set(
+    "project_skills.order",
+    "sort_order.asc,skill_id.asc",
+  );
   return endpoint;
 }
 
 // Fetch reusable skills/assets through their project relationships.
 async function fetchProjects({ endpoint, key }) {
   try {
-    const request = (query) =>
-      fetch(query, {
-        headers: { apikey: key, Accept: "application/json" },
-        signal: AbortSignal.timeout(8_000),
-        redirect: "error",
-        cache: "no-store",
-      });
-    let response = await request(projectQuery(endpoint));
-    if (!response.ok && [400, 404].includes(response.status)) {
-      const failure = await response.json();
-      if (["PGRST200", "PGRST204", "42703"].includes(failure.code)) {
-        response = await request(projectQuery(endpoint, true));
-      }
-    }
+    const response = await fetch(projectQuery(endpoint), {
+      headers: { apikey: key, Accept: "application/json" },
+      signal: AbortSignal.timeout(8_000),
+      redirect: "error",
+      cache: "no-store",
+    });
     if (!response.ok) {
       throw connectionError(
         `Supabase returned HTTP ${response.status}. Check the project URL, publishable key, Data API and table read permissions.`,

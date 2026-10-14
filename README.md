@@ -49,15 +49,7 @@ Image files stay in the public Supabase Storage bucket. `images.bucket` is the b
 
 The database uses row-level security and public read permissions. Login does not grant database write permissions yet.
 
-### Replace the old database structure once
-
-1. Deploy this code first. It reads both the old and new schemas, so the website keeps working during the change.
-2. Open the existing portfolio project (`jxwsiatpapxbwoqedytp`) in Supabase → **SQL Editor → New query**. Paste the entire contents of `migrate-portfolio.sql`, then click **Run**. Supabase may ask you to confirm the destructive statements because the three old portfolio tables are replaced.
-3. The result should show 8 projects, 8 links, 2 image placements, 2 image assets, 30 skills and 2 skill labels. Wait up to 60 seconds and reload the portfolio and admin overview.
-
-The migration copies the current database content inside one transaction, recreates the portfolio tables and restores the content with its new relationships. It preserves project IDs, slugs, text, image placements, links and creation dates. Any failure rolls back the replacement. Storage, Auth and unrelated tables are untouched. Run this migration only once. If you add another project before running it, add its slug, type and sorting date to `project_metadata` near the top of the query.
-
-`query-template.sql` contains the same **empty schema**, without content or table deletion. Use it only for a fresh database, not to migrate the existing one. No new environment variables are required.
+The existing database is already migrated. `query-template.sql` contains the **empty schema**, without content or table deletion. Use it only to set up a fresh database in Supabase's SQL Editor; no SQL needs to be run for the existing project.
 
 About, Education and Contact content stays in EJS templates. Main-page metadata lives in `src/content/pages.js`; the domain and shared social image live in `src/config/site.js`.
 
@@ -75,7 +67,7 @@ The flow is: **browser requests a page → Express reads Supabase → EJS render
 
 In `projects.js`, `getConnection()` checks the URL/key, `fetchProjects()` makes the read request, `toProject()` maps fields such as `body` into paragraphs, and `getProjects()` returns the cached result.
 
-The server caches projects for 60 seconds and shares a fetch between simultaneous requests. Each database request times out after 8 seconds. Before migration it falls back to the old query if the new columns/relationships are missing. New projects automatically get a page and sitemap entry; changing a slug changes its URL.
+The server caches projects for 60 seconds and shares a fetch between simultaneous requests. Each database request times out after 8 seconds. The reader uses the current relational schema only. New projects automatically get a page and sitemap entry; changing a slug changes its URL.
 
 Local development without either Supabase variable uses `src/content/projects.json`. Production requires both variables. If a configured database is unavailable, portfolio pages show a temporary 503 error; the other main pages remain available.
 

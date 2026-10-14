@@ -1,5 +1,5 @@
 -- Empty portfolio schema. Run ONLY in a database without portfolio tables.
--- For the existing database, use migrate-portfolio.sql instead: it preserves content.
+-- The existing database is already set up; do not run this there again.
 BEGIN;
 
 CREATE TABLE public.skill_labels (
