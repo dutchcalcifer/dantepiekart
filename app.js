@@ -36,7 +36,9 @@ app.use((req, res) => {
 app.use((err, req, res, next) => {
   console.error(err);
   if (res.headersSent) return next(err);
-  res.status(500).render("pages/errors/500", {
+  res.set("Cache-Control", "no-store");
+  if (err.status === 503) res.set("Retry-After", "60");
+  res.status(err.status === 503 ? 503 : 500).render("pages/errors/500", {
     title: "Something went wrong | Dante Piekart",
     description: "This page could not be loaded. Please try again later.",
     noindex: true,

@@ -1,49 +1,93 @@
-# Dante Piekart - Portfolio
+# Dante Piekart — Portfolio
 
-Portfolio website for **Dante Piekart**, Product Designer and Front-end Developer. Built with Node.js 24, Express 5 and EJS 7.
+Personal portfolio built with Node.js 24, Express and EJS.
 
 [dantepiekart.nl](https://www.dantepiekart.nl/)
 
-## Local development
+## Local setup
 
 ```sh
 nvm install
 nvm use
 npm ci
+```
+
+If `.env` is missing, copy `.env.example` to `.env`. Fill in:
+
+```dotenv
+SUPABASE_URL=https://your-project-ref.supabase.co
+SUPABASE_PUBLISHABLE_KEY=sb_publishable_...
+```
+
+Find these in Supabase's **Connect** dialog or **Settings → API Keys**. Use the project URL and publishable key. The website does not need a database password or secret key. Your local `.env` is ignored by Git.
+
+```sh
 npm run dev
 ```
 
-Open `http://localhost:3000`. `npm start` runs the server without a watcher. Set `PORT` to use another port, for example `PORT=3100 npm start`. The Node 24 major version is specified in `.nvmrc`, `.node-version` and `package.json`; use the latest available Node 24 patch.
+Open [localhost:3000](http://localhost:3000). `npm start` runs without the development watcher. Both commands load `.env`; restart after changing that file. Templates are read when a page loads, so reload after editing them.
 
-Node's native watcher restarts the server when imported source changes. Templates are read when a page is requested; reload the browser after editing content. Production template caching is enabled by Express when `NODE_ENV=production`.
+## Edit portfolio content
 
-## Checks
+Use Supabase's **Table Editor**:
+
+| Table            | What you edit                                                             |
+| ---------------- | ------------------------------------------------------------------------- |
+| `projects`       | Title, slug, description, body, skills, role, team, timeframe and order   |
+| `project_links`  | A project's link labels, URLs and order                                   |
+| `project_images` | A project's image paths, alternative text, dimensions, captions and order |
+
+Write the story in `body`, separating paragraphs with a blank line. `skills` is a list; use the array editor. Lower `sort_order` numbers appear first.
+
+Leave generated `id` values unchanged. On a link or image, `project_id` points to its project: select that project or copy its `id`. This is how the database keeps the right images and links together. Deleting a project also deletes its associated link/image rows, but not the image files.
+
+Images currently use files in `public/images/`. To add images without Git, upload them to a public Supabase Storage bucket and use their public HTTPS URLs in `src`. Database rows store image references, not the files themselves. PDFs can stay in `public/files/`.
+
+The database is already set up with public read access and row-level security. No setup SQL needs to be run again. `query-template.sql` is an empty scratch file for future queries.
+
+About, Education and Contact content stays in EJS templates. Main-page metadata lives in `src/content/pages.js`; the domain and shared social image live in `src/config/site.js`.
+
+## What the database code does
+
+The flow is: **browser requests a page → Express reads Supabase → EJS renders HTML**. The database request happens on the server.
+
+| File                          | Purpose                                                                                                                                     |
+| ----------------------------- | ------------------------------------------------------------------------------------------------------------------------------------------- |
+| `src/content/projects.js`     | Reads the connection settings, fetches projects with their links/images, and converts database fields into the format used by the templates |
+| `src/routes/routes.js`        | Uses that content for the portfolio list, `/portfolio/:slug` pages and `/sitemap.xml`                                                       |
+| `src/views/pages/project.ejs` | Displays paragraphs, skills, project details, images and links                                                                              |
+| `app.js`                      | Starts Express and handles missing pages or temporary database failures                                                                     |
+| `package.json`                | Defines startup and formatting/lint commands; startup loads `.env`                                                                          |
+
+In `projects.js`, `getConnection()` checks the URL/key, `fetchProjects()` makes the read request, `toProject()` maps fields such as `body` into paragraphs, and `getProjects()` returns the cached result.
+
+The server caches projects for 60 seconds and shares a fetch between simultaneous requests. It stops waiting after 8 seconds. New projects automatically get a page and sitemap entry; changing a slug changes its URL.
+
+Local development without either Supabase variable uses `src/content/projects.json`. Production requires both variables. If a configured database is unavailable, portfolio pages show a temporary 503 error; the other main pages remain available.
+
+## Check it yourself
+
+1. Run `npm run dev` and open `/portfolio` and one project page.
+2. In Supabase, temporarily add `(test)` to that project's title and save.
+3. Wait 60 seconds, then reload both pages. If both show the change, they are reading the database.
+4. Restore the title. Check `/sitemap.xml` to see the current project URLs.
+
+An image reference can be checked by opening its `src` URL directly. To check descriptions and canonical URLs, view the project page's HTML source.
 
 ```sh
 npm run check
-npm audit
 ```
 
-`check` runs ESLint and Prettier. The GitHub Actions workflow runs those checks and a dependency audit on pushes and pull requests.
+This checks JavaScript linting and formatting; it does not test the live database. `npm run format` formats supported files. EJS templates are excluded. GitHub Actions runs the checks and a dependency audit.
 
-Use `npm run format` to format supported source files. EJS templates are excluded because Prettier does not support EJS natively.
+For connection errors, check the terminal output, the two environment variables, and whether the Supabase project is paused. An unexpectedly empty portfolio can indicate missing read permissions.
 
-## Content
+## Deploy on Vercel
 
-- Edit projects in `src/content/projects.json`.
-- Copy `docs/project-template.json` to create another project.
-- Follow [the portfolio content guide](docs/portfolio-content.md) to add project details and screenshots. Empty optional fields stay hidden.
-- Edit main-page titles and descriptions in `src/content/pages.js`.
-- Site URL and social-image settings live in `src/config/site.js`.
+1. Add `SUPABASE_URL` and `SUPABASE_PUBLISHABLE_KEY` under **Settings → Environment Variables**.
+2. Enable them for Production and Preview if both should use this database.
+3. Push the code and deploy. Changes to environment variables require a new deployment; content edits do not.
 
-Project pages, portfolio links and `/sitemap.xml` use the same content list. `/robots.txt` advertises the sitemap. Canonical URLs always use `https://www.dantepiekart.nl`, including on local or preview deployments.
+Keep the Express preset and Node 24, with the standard build/install/output settings. `vercel.json` includes the views and content in the server bundle. Enable Web Analytics and Speed Insights in the dashboard.
 
-## Vercel
-
-The Express app is exported from `app.js`. Vercel's Express preset handles routing and serves `public/` assets through its CDN. `vercel.json` includes EJS views and project content in the server bundle; there is no separate API function or build step.
-
-Web Analytics and Speed Insights use Vercel's script endpoints directly. Enable both products in the Vercel project dashboard. Those endpoints are supplied by Vercel and are unavailable on the plain local Express server.
-
-The menu uses a native dialog with keyboard focus containment, Escape dismissal and focus return. A skip link and visible focus indicators support keyboard navigation; a navigation fallback is available without JavaScript. Reduced-motion preferences disable animations.
-
-Page navigation uses standard browser page loads with no transition effects. Arrows are embedded in the CSS so they do not wait for a separate icon request.
+Navigation uses normal page loads. The menu supports keyboard navigation, Escape and focus return; reduced-motion preferences disable animations.

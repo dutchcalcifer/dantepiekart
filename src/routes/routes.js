@@ -1,5 +1,6 @@
 import express from "express";
-import { pages, projects } from "../content/pages.js";
+import { pages } from "../content/pages.js";
+import { getProjects } from "../content/projects.js";
 import { site } from "../config/site.js";
 
 const router = express.Router();
@@ -15,9 +16,15 @@ router.use((req, res, next) => {
   next();
 });
 
-router.get("/sitemap.xml", (req, res) => {
-  const urls = pages
-    .map((page) => `<url><loc>${site.url}${page.path}</loc></url>`)
+router.get("/sitemap.xml", async (req, res) => {
+  res.set("Cache-Control", "no-store");
+  const projects = await getProjects();
+  const paths = [
+    ...pages.map((page) => page.path),
+    ...projects.map((project) => `/portfolio/${project.slug}`),
+  ];
+  const urls = paths
+    .map((path) => `<url><loc>${site.url}${path}</loc></url>`)
     .join("");
   res
     .type("application/xml")
@@ -33,15 +40,29 @@ router.get("/robots.txt", (req, res) => {
 });
 
 for (const page of pages) {
-  router.get(page.path, (req, res) => {
+  router.get(page.path, async (req, res) => {
+    const projects = page.path === "/portfolio" ? await getProjects() : [];
+    if (page.path === "/portfolio") res.set("Cache-Control", "no-store");
     res.render(page.view, {
       title: page.title,
       description: page.description,
       canonicalUrl: `${site.url}${page.path}`,
-      project: page.project,
       projects,
     });
   });
 }
+
+router.get("/portfolio/:slug", async (req, res, next) => {
+  const projects = await getProjects();
+  const project = projects.find((entry) => entry.slug === req.params.slug);
+  if (!project) return next();
+  res.set("Cache-Control", "no-store");
+  res.render("pages/project", {
+    title: `${project.title} | Dante Piekart`,
+    description: project.description,
+    canonicalUrl: `${site.url}/portfolio/${project.slug}`,
+    project,
+  });
+});
 
 export default router;

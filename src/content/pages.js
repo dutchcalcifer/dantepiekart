@@ -1,7 +1,3 @@
-import projects from "./projects.json" with { type: "json" };
-
-export { projects };
-
 export const pages = [
   {
     path: "/",
@@ -23,13 +19,6 @@ export const pages = [
     title: "Portfolio | Dante Piekart",
     description: "Explore Dante Piekart's projects like the CMD Navigator.",
   },
-  ...projects.map((project) => ({
-    path: `/portfolio/${project.slug}`,
-    view: "pages/project",
-    title: `${project.title} | Dante Piekart`,
-    description: project.description,
-    project,
-  })),
   {
     path: "/education",
     view: "pages/education",
